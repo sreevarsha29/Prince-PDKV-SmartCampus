@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Placements – Prince Dr. K. Vasudevan College of Engineering and Technology</title>
+  <link rel="stylesheet" href="placement.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<!-- ══════════════════════════════════
+     NAVIGATION (matches image style)
+══════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+      <div class="logo-text">
+        <span class="logo-name">Prince Institution</span>
+        <span class="logo-sub">Dr. K. Vasudevan College of Engg & Tech</span>
+      </div>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="nav-link" onclick="goHome()">HOME</a></li>
+      <li><a href="About.html" class="nav-link">ABOUT US</a></li>
+      <li><a href="Academics.html" class="nav-link">ACADEMICS</a></li>
+      <li><a href="Admission.html" class="nav-link">ADMISSIONS</a></li>
+      <li><a href="CampusLife.html" class="nav-link"><i class="fa-solid fa-landmark"></i> CAMPUS LIFE</a></li>
+      <li><a href="placement.html" class="nav-link active" onclick="scrollToSection('placements')">PLACEMENTS</a></li>
+      <li><a href="contact.html" class="nav-link">CONTACT US</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════
+     PUBLIC PLACEMENT PAGE
+══════════════════════════════════ -->
+<div id="publicPage">
+
+  <!-- HERO BANNER -->
+  <section class="hero-section" id="placements">
+    <div class="hero-bg-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge animate-in delay-1">
+        <i class="fa-solid fa-star"></i> Placement Season 2024–25
+      </div>
+      <h1 class="hero-title animate-in delay-2">
+        Shaping <span class="accent">Careers</span>,<br/>Building <span class="accent">Futures</span>
+      </h1>
+      <p class="hero-subtitle animate-in delay-3">
+        Prince Dr. K. Vasudevan College of Engineering and Technology has consistently delivered exceptional placement outcomes.
+        Our students are placed in India's top companies with competitive packages.
+      </p>
+      <div class="hero-cta animate-in delay-4">
+        <button class="btn-primary" onclick="scrollToSection('stats')">
+          <i class="fa-solid fa-chart-line"></i> View Placement Stats
+        </button>
+        <button class="btn-outline" onclick="showLogin()">
+          <i class="fa-solid fa-right-to-bracket"></i> Student Login
+        </button>
+      </div>
+    </div>
+    <div class="hero-visual animate-in delay-3">
+      <div class="hero-card-stack">
+        <div class="hcard hcard-1">
+          <div class="hcard-icon"><i class="fa-solid fa-building"></i></div>
+          <div>
+            <p class="hcard-val">280+</p>
+            <p class="hcard-lbl">Companies</p>
+          </div>
+        </div>
+        <div class="hcard hcard-2">
+          <div class="hcard-icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+          <div>
+            <p class="hcard-val">42 LPA</p>
+            <p class="hcard-lbl">Highest Package</p>
+          </div>
+        </div>
+        <div class="hcard hcard-3">
+          <div class="hcard-icon"><i class="fa-solid fa-users-line"></i></div>
+          <div>
+            <p class="hcard-val">94%</p>
+            <p class="hcard-lbl">Placed 2024</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="stats-section" id="stats">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-tag"><i class="fa-solid fa-gauge-high"></i> By The Numbers</div>
+        <h2 class="section-title">Placement Statistics</h2>
+        <p class="section-sub">A snapshot of our outstanding placement record across all departments</p>
+      </div>
+
+      
+      <div class="big-stats">
+        <div class="bstat animate-counter" data-val="94" data-suffix="%">
+          <div class="bstat-circle">
+            <svg viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="52" class="ring-bg"/>
+              <circle cx="60" cy="60" r="52" class="ring-fill" id="ring-placed"
+                stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+            </svg>
+            <div class="bstat-label">
+              <span class="bstat-num" id="num-placed">0</span>
+              <span class="bstat-unit">%</span>
+            </div>
+          </div>
+          <p class="bstat-name">Students Placed</p>
+          <p class="bstat-sub">Batch 2024</p>
+        </div>
+        <div class="bstat animate-counter" data-val="280" data-suffix="+">
+          <div class="bstat-circle bstat-blue">
+            <svg viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="52" class="ring-bg"/>
+              <circle cx="60" cy="60" r="52" class="ring-fill" id="ring-companies"
+                stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+            </svg>
+            <div class="bstat-label">
+              <span class="bstat-num" id="num-companies">0</span>
+              <span class="bstat-unit">+</span>
+            </div>
+          </div>
+          <p class="bstat-name">Recruiters</p>
+          <p class="bstat-sub">Visited Campus</p>
+        </div>
+        <div class="bstat animate-counter" data-val="42" data-suffix=" LPA">
+          <div class="bstat-circle bstat-teal">
+            <svg viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="52" class="ring-bg"/>
+              <circle cx="60" cy="60" r="52" class="ring-fill" id="ring-pkg"
+                stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+            </svg>
+            <div class="bstat-label">
+              <span class="bstat-num" id="num-pkg">0</span>
+              <span class="bstat-unit" style="font-size:11px">LPA</span>
+            </div>
+          </div>
+          <p class="bstat-name">Highest Package</p>
+          <p class="bstat-sub">Amazon, 2024</p>
+        </div>
+        <div class="bstat">
+          <div class="bstat-circle bstat-indigo">
+            <svg viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="52" class="ring-bg"/>
+              <circle cx="60" cy="60" r="52" class="ring-fill" id="ring-avg"
+                stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+            </svg>
+            <div class="bstat-label">
+              <span class="bstat-num" id="num-avg">0</span>
+              <span class="bstat-unit" style="font-size:11px">LPA</span>
+            </div>
+          </div>
+          <p class="bstat-name">Average Package</p>
+          <p class="bstat-sub">All Departments</p>
+        </div>
+      </div>
+
+      <!-- Department-wise Placement % -->
+      <div class="dept-placement">
+        <h3 class="sub-heading"><i class="fa-solid fa-chart-bar"></i> Department-wise Placement %</h3>
+        <div class="dept-bars" id="deptBars"></div>
+      </div>
+
+      <!-- Year-wise Trend -->
+      <div class="year-trend">
+        <h3 class="sub-heading"><i class="fa-solid fa-chart-line"></i> Year-wise Placement Trend</h3>
+        <div class="trend-chart" id="trendChart"></div>
+        <div class="trend-labels">
+          <span>2021–22</span><span>2022–23</span><span>2023–24</span><span>2024–25</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOP RECRUITERS MARQUEE -->
+  <section class="recruiters-section">
+    <div class="section-container">
+      <div class="section-tag" style="margin-bottom:1.5rem"><i class="fa-solid fa-star"></i> Our Recruiters</div>
+    </div>
+    <div class="marquee-wrap">
+      <div class="marquee-track" id="marqueeTrack"></div>
+    </div>
+  </section>
+
+  <!-- PLACED STUDENTS SHOWCASE -->
+  <section class="placed-section">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-tag"><i class="fa-solid fa-trophy"></i> Success Stories</div>
+        <h2 class="section-title">Our Placed Students</h2>
+        <p class="section-sub">Real students, real offers — from our 2024–25 batch</p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="placed-tabs">
+        <button class="ptab active" onclick="filterPlaced('all',this)">All</button>
+        <button class="ptab" onclick="filterPlaced('CSE',this)">CSE</button>
+        <button class="ptab" onclick="filterPlaced('ECE',this)">ECE</button>
+        <button class="ptab" onclick="filterPlaced('MECH',this)">MECH</button>
+        <button class="ptab" onclick="filterPlaced('CIVIL',this)">CIVIL</button>
+      </div>
+
+      <div class="placed-grid" id="placedGrid"></div>
+
+      <!-- Stats Bar at bottom -->
+      <div class="placed-summary" id="placedSummary"></div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <div class="cta-text">
+        <h2>Are you a student?</h2>
+        <p>Login to the Student Placement Portal to track drives, apply, and view results.</p>
+      </div>
+      <button class="btn-primary btn-lg" onclick="showLogin()">
+        <i class="fa-solid fa-right-to-bracket"></i> Student Login
+      </button>
+    </div>
+  </section>
+
+</div><!-- end publicPage -->
+
+<!-- ══════════════════════════════════
+     LOGIN OVERLAY
+══════════════════════════════════ -->
+<div class="login-overlay" id="loginOverlay">
+  <div class="login-modal">
+    <button class="modal-close" onclick="hideLogin()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="login-logo-wrap">
+      <div class="login-logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+    </div>
+    <h2 class="login-title">Student Portal</h2>
+    <p class="login-sub">Enter your details to access the placement portal</p>
+    <div class="lfield">
+      <label>Full Name</label>
+      <input type="text" id="inName" placeholder="e.g. Priya Sharma" autocomplete="off"/>
+    </div>
+    <div class="lfield">
+      <label>Roll Number</label>
+      <input type="text" id="inRoll" placeholder="e.g. 22CS047" autocomplete="off"/>
+    </div>
+    <div class="lrow">
+      <div class="lfield">
+        <label>Department</label>
+        <select id="inDept">
+          <option value="">Select</option>
+          <option>CSE</option><option>ECE</option><option>MECH</option><option>CIVIL</option>
+        </select>
+      </div>
+      <div class="lfield">
+        <label>CGPA</label>
+        <input type="number" id="inCGPA" placeholder="8.5" min="0" max="10" step="0.1"/>
+      </div>
+    </div>
+    <div class="login-err" id="loginErr"><i class="fa-solid fa-circle-exclamation"></i> <span id="errMsg">Fill all fields</span></div>
+    <button class="btn-primary w100" onclick="doLogin()">
+      <i class="fa-solid fa-arrow-right"></i> Enter Portal
+    </button>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     STUDENT PORTAL (hidden until login)
+══════════════════════════════════ -->
+<div id="portalPage" style="display:none">
+
+  <!-- Portal Navbar -->
+  <nav class="navbar portal-navbar" id="portalNavbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+        <div class="logo-text">
+          <span class="logo-name">Prince Institution</span>
+          <span class="logo-sub">Placements Portal</span>
+        </div>
+      </div>
+      <ul class="nav-links" id="portalNavLinks">
+        <li><a href="#" class="nav-link active" onclick="portalTab('dashboard',this)"><i class="fa-solid fa-gauge-high"></i> Dashboard</a></li>
+        <li><a href="#" class="nav-link" onclick="portalTab('drives',this)"><i class="fa-solid fa-building-columns"></i> Drives</a></li>
+        <li><a href="#" class="nav-link" onclick="portalTab('results',this)"><i class="fa-solid fa-trophy"></i> Results</a></li>
+        <li><a href="#" class="nav-link" onclick="portalTab('profile',this)"><i class="fa-solid fa-user"></i> My Profile</a></li>
+      </ul>
+      <div class="portal-user" id="portalUser" onclick="toggleUserDD()">
+        <div class="portal-avatar" id="portalAvatar">U</div>
+        <span id="portalName">User</span>
+        <i class="fa-solid fa-chevron-down" style="font-size:11px;opacity:.6"></i>
+        <div class="user-dropdown" id="userDropdown">
+          <div class="udd-header">
+            <div class="udd-av" id="uddAvatar">U</div>
+            <div class="udd-info">
+              <strong id="uddName">User</strong>
+              <span id="uddRoll">Roll</span>
+            </div>
+          </div>
+          <hr/>
+          <div class="udd-item" onclick="portalTab('profile',null)"><i class="fa-solid fa-id-card"></i> My Profile</div>
+          <div class="udd-item udd-logout" onclick="doLogout()"><i class="fa-solid fa-right-from-bracket"></i> Logout</div>
+        </div>
+      </div>
+      <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ── DASHBOARD TAB ── -->
+  <div id="ptab-dashboard" class="portal-tab active-tab">
+    <section class="portal-hero">
+      <div class="ph-content">
+        <div class="ph-badge"><i class="fa-solid fa-star"></i> 2024–25 Season</div>
+        <h1>Welcome, <span class="accent" id="heroName">Student</span>!</h1>
+        <p>Your placement journey starts here. Track drives, apply, and land your dream offer.</p>
+        <div class="ph-actions">
+          <button class="btn-primary" onclick="portalTab('drives',null)"><i class="fa-solid fa-rocket"></i> Browse Drives</button>
+          <button class="btn-outline" onclick="portalTab('profile',null)"><i class="fa-solid fa-user"></i> My Profile</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="portal-main">
+      <!-- Quick Stats -->
+      <div class="pstat-grid" id="pstatGrid"></div>
+
+      <!-- Journey -->
+      <div class="portal-card" style="margin-top:1.5rem">
+        <h3 class="card-heading"><i class="fa-solid fa-route"></i> Your Placement Journey</h3>
+        <div class="journey-wrap" id="journeyWrap"></div>
+      </div>
+
+      <!-- Package chart -->
+      <div class="portal-card" style="margin-top:1.2rem">
+        <h3 class="card-heading"><i class="fa-solid fa-chart-column"></i> Package Trends – Top Companies (LPA)</h3>
+        <div class="pkg-bars" id="pkgBars"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DRIVES TAB ── -->
+  <div id="ptab-drives" class="portal-tab" style="display:none">
+    <div class="portal-main">
+      <div class="tab-header">
+        <h2 class="tab-title"><i class="fa-solid fa-building-columns"></i> Campus Drives</h2>
+        <p class="tab-sub">Browse and apply to ongoing and upcoming placement drives</p>
+      </div>
+      <div class="drives-toolbar">
+        <div class="search-wrap"><i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="driveSearch" placeholder="Search company, role, CTC…" oninput="renderDrives()"/>
+        </div>
+        <div class="ftabs">
+          <button class="ftab active" data-f="all" onclick="setFilter('all',this)">All</button>
+          <button class="ftab" data-f="open" onclick="setFilter('open',this)">Open</button>
+          <button class="ftab" data-f="upcoming" onclick="setFilter('upcoming',this)">Upcoming</button>
+          <button class="ftab" data-f="closed" onclick="setFilter('closed',this)">Closed</button>
+        </div>
+      </div>
+      <div class="drives-grid" id="drivesGrid"></div>
+    </div>
+  </div>
+
+  <!-- ── RESULTS TAB ── -->
+  <div id="ptab-results" class="portal-tab" style="display:none">
+    <div class="portal-main">
+      <div class="tab-header">
+        <h2 class="tab-title"><i class="fa-solid fa-trophy"></i> Placement Results</h2>
+        <p class="tab-sub">Historical placement data and offer letters</p>
+      </div>
+      <div class="year-tabs" id="yearTabs">
+        <button class="ytab active" onclick="setYear('2024',this)">2024–25</button>
+        <button class="ytab" onclick="setYear('2023',this)">2023–24</button>
+        <button class="ytab" onclick="setYear('2022',this)">2022–23</button>
+      </div>
+      <div class="results-stats" id="resultsStats"></div>
+      <div class="portal-card" style="margin-top:1rem">
+        <div class="table-top">
+          <h3 class="card-heading" style="margin:0"><i class="fa-solid fa-table-list"></i> Offer Letters Issued</h3>
+          <input type="text" class="table-search" placeholder="Search…" oninput="filterOffers(this.value)"/>
+        </div>
+        <div class="table-wrap">
+          <table class="offers-table">
+            <thead><tr>
+              <th>Student</th><th>Company</th><th>Role</th><th>CTC</th><th>Status</th>
+            </tr></thead>
+            <tbody id="offersBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PROFILE TAB ── -->
+  <div id="ptab-profile" class="portal-tab" style="display:none">
+    <div class="portal-main">
+      <div class="tab-header">
+        <h2 class="tab-title"><i class="fa-solid fa-user"></i> My Placement Profile</h2>
+        <p class="tab-sub">Your details and application history</p>
+      </div>
+      <div class="profile-layout">
+        <div class="profile-left">
+          <div class="portal-card profile-card-inner">
+            <div class="profile-av-lg" id="profileAvLg">U</div>
+            <h3 id="profileName">–</h3>
+            <p id="profileSub" class="profile-dept-tag">–</p>
+            <div class="profile-grid" id="profileGrid"></div>
+            <div class="skills-wrap">
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">Java</span>
+              <span class="skill-chip">DSA</span>
+              <span class="skill-chip">SQL</span>
+              <span class="skill-chip">React</span>
+              <span class="skill-chip">Linux</span>
+            </div>
+            <div class="placement-status-row">
+              <div class="status-dot"></div>
+              <span>Actively seeking placement</span>
+            </div>
+          </div>
+        </div>
+        <div class="profile-right">
+          <div class="portal-card">
+            <h3 class="card-heading"><i class="fa-solid fa-file-lines"></i> My Applications</h3>
+            <div id="myApps"></div>
+          </div>
+          <div class="portal-card" style="margin-top:1rem">
+            <h3 class="card-heading"><i class="fa-solid fa-shield-check"></i> Eligibility Check</h3>
+            <div id="eligChecks"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end portalPage -->
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- Scroll-to-top -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<footer class="footer" id="contact">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo-icon small"><i class="fa-solid fa-graduation-cap"></i></div>
+      <div>
+        <p class="footer-name">Prince Dr. K. Vasudevan College of Engg &amp; Technology</p>
+        <p class="footer-sub">Training &amp; Placement Cell</p>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="Academics.html">Academics</a>
+      <a href="Placement.html">Placements</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p class="footer-copy">© 2025 Prince Institution · All rights reserved</p>
+  </div>
+</footer>
+
+<script src="placement.js"></script>
+</body>
+</html>

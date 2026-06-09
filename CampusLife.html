@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus Life – Prince Dr K Vasudevan College of Engineering & Technology</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="Campuslife.css">
+</head>
+<body>
+
+<!-- NAV -->
+<header class="topbar">
+  <div class="logo-wrap">
+    <div class="logo-icon">PDKV</div>
+    <div class="logo-text">Prince Dr K Vasudevan College of Engineering &amp; Technology</div>
+  </div>
+  <nav class="main-nav">
+    <a href="index.html"> Home</a>
+    <a href="Academics.html"> Courses</a>
+    <a href="Admission.html"> Admission</a>
+    <a href="placement.html"> Placement</a>
+    <a href="CampusLife.html" class="active">Campus Life</a>
+    <a href="contact.html"> Contact Us</a>
+  </nav>
+  <div class="nav-right">
+    <button class="btn-signin">&#10230; Sign In</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">&#127891; Student Life Portal</div>
+  <h1>Campus <span>Life</span></h1>
+  <p>Everything you need — hostels, canteen, labs, library, sports &amp; more — all in one place.</p>
+  <div class="hero-stats">
+    <div class="hstat"><div class="num">500+</div><div class="lbl">Hostel Capacity</div></div>
+    <div class="hstat"><div class="num">60K+</div><div class="lbl">Library Books</div></div>
+    <div class="hstat"><div class="num">60+</div><div class="lbl">Smart Classrooms</div></div>
+    <div class="hstat"><div class="num">10+</div><div class="lbl">Sports</div></div>
+    <div class="hstat"><div class="num">20+</div><div class="lbl">Labs</div></div>
+  </div>
+</section>
+
+<!-- SECTION NAV -->
+<div class="section-nav" id="sectionNav">
+  <button class="snav-btn active" data-sec="hostel"><span class="ico">&#128716;&#65039;</span> Hostel</button>
+  <button class="snav-btn" data-sec="canteen"><span class="ico">&#127869;&#65039;</span> Canteen</button>
+  <button class="snav-btn" data-sec="library"><span class="ico">&#128218;</span> Library</button>
+  <button class="snav-btn" data-sec="labs"><span class="ico">&#128302;</span> Labs</button>
+  <button class="snav-btn" data-sec="sports"><span class="ico">&#9917;</span> Sports</button>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- HOSTEL -->
+  <div class="section active" id="sec-hostel">
+    <div class="sec-title"><span class="ico">&#128716;&#65039;</span> Hostel Facilities</div>
+    <div class="info-box"><span class="ico">&#8505;&#65039;</span> Hostel admissions open for 2025–26. Register online or visit the Hostel Office, Block D.</div>
+    <div class="hostel-grid">
+      <div class="hostel-card">
+        <h3>&#127970; Boys' Hostel — Block A &amp; B</h3>
+        <div class="hostel-feat"><span class="dot"></span> 300 Seater Capacity with attached bathrooms</div>
+        <div class="hostel-feat"><span class="dot"></span> 24/7 Hot water &amp; power backup</div>
+        <div class="hostel-feat"><span class="dot"></span> Wi-Fi – 1 Gbps campus network</div>
+        <div class="hostel-feat"><span class="dot"></span> In-room study desks &amp; wardrobes</div>
+        <div class="hostel-feat"><span class="dot"></span> CCTV surveillance all floors</div>
+        <div class="hostel-feat"><span class="dot"></span> Laundry room available</div>
+        <div class="hostel-feat"><span class="dot"></span> Common room with TV &amp; indoor games</div>
+        <div class="hostel-feat"><span class="dot"></span> Warden available 24/7</div>
+        <br><button class="btn-submit" onclick="toast('Room availability request submitted!')">Apply for Admission</button>
+      </div>
+      <div class="hostel-card">
+        <h3>&#127970; Girls' Hostel — Block C</h3>
+        <div class="hostel-feat"><span class="dot"></span> 200 Seater Capacity – separate secure wing</div>
+        <div class="hostel-feat"><span class="dot"></span> Lady warden on duty round the clock</div>
+        <div class="hostel-feat"><span class="dot"></span> Biometric entry &amp; CCTV surveillance</div>
+        <div class="hostel-feat"><span class="dot"></span> Study hall with broadband internet</div>
+        <div class="hostel-feat"><span class="dot"></span> Recreation &amp; yoga room</div>
+        <div class="hostel-feat"><span class="dot"></span> Mess with special dietary options</div>
+        <div class="hostel-feat"><span class="dot"></span> Medical room &amp; first aid</div>
+        <div class="hostel-feat"><span class="dot"></span> Safe, well-lit surroundings</div>
+        <br><button class="btn-submit" onclick="toast('Room availability request submitted!')">Apply for Admission</button>
+      </div>
+      <div class="hostel-card">
+        <h3>&#128176; Fee Structure 2025–26</h3>
+        <div class="hostel-feat"><span class="dot"></span> Single Occupancy — &#8377;85,000 / year</div>
+        <div class="hostel-feat"><span class="dot"></span> Double Sharing — &#8377;60,000 / year</div>
+        <div class="hostel-feat"><span class="dot"></span> Triple Sharing — &#8377;48,000 / year</div>
+        <div class="hostel-feat"><span class="dot"></span> Mess Charges — &#8377;32,000 / year</div>
+        <div class="hostel-feat"><span class="dot"></span> Security Deposit — &#8377;5,000 (refundable)</div>
+        <div class="hostel-feat"><span class="dot"></span> Laundry — &#8377;2,500 / year (optional)</div>
+        <br><button class="btn-submit" onclick="toast('Fee details sent to your email!')">Download Fee Details</button>
+      </div>
+      <div class="hostel-card">
+        <h3>&#128203; Hostel Rules &amp; Regulations</h3>
+        <div class="hostel-feat"><span class="dot"></span> Curfew: 9:00 PM (Boys), 8:30 PM (Girls)</div>
+        <div class="hostel-feat"><span class="dot"></span> Gate pass required for outings</div>
+        <div class="hostel-feat"><span class="dot"></span> No smoking / alcohol on campus</div>
+        <div class="hostel-feat"><span class="dot"></span> Visitor entry at Reception only</div>
+        <div class="hostel-feat"><span class="dot"></span> Mess timings must be followed</div>
+        <div class="hostel-feat"><span class="dot"></span> Ragging strictly prohibited</div>
+        <div class="hostel-feat"><span class="dot"></span> Silence hours: 10 PM – 6 AM</div>
+        <div class="hostel-feat"><span class="dot"></span> Damage to property will be charged</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CANTEEN -->
+  <div class="section" id="sec-canteen">
+    <div class="sec-title"><span class="ico">&#127869;&#65039;</span> Canteen &amp; Dining</div>
+    <div class="ctabs">
+      <button class="ctab active" data-ctab="menu-today">&#128197; Today's Menu</button>
+      <button class="ctab" data-ctab="menu-week">&#128198; Weekly Schedule</button>
+      <button class="ctab" data-ctab="prices">&#128176; Prices &amp; Plans</button>
+      <button class="ctab" data-ctab="order">&#128722; Pre-Book Meal</button>
+      <button class="ctab" data-ctab="feedback">&#128172; Feedback</button>
+      <button class="ctab" data-ctab="hygiene">&#129532; Hygiene Notice</button>
+    </div>
+    <div class="ctab-panel active" id="ctab-menu-today">
+      <div class="info-box"><span class="ico">&#127749;</span> Today is <strong>Monday, 08 June 2026</strong>. Menu is updated daily by 7 AM.</div>
+      <div class="menu-day">
+        <h4>&#127749; Breakfast &nbsp;<span style="font-weight:400;font-size:13px;color:#90A4AE">7:00 AM – 9:00 AM</span></h4>
+        <div class="meal-row">
+          <div class="meal-block"><div class="mtype">Main</div><ul><li>Idli (3 pcs)</li><li>Vada (2 pcs)</li></ul></div>
+          <div class="meal-block"><div class="mtype">Sides</div><ul><li>Sambar</li><li>Coconut Chutney</li></ul></div>
+          <div class="meal-block"><div class="mtype">Drinks</div><ul><li>Tea / Coffee</li><li>Milk</li></ul></div>
+        </div>
+      </div>
+      <div class="menu-day">
+        <h4>&#9728;&#65039; Lunch &nbsp;<span style="font-weight:400;font-size:13px;color:#90A4AE">12:00 PM – 2:00 PM</span></h4>
+        <div class="meal-row">
+          <div class="meal-block"><div class="mtype">Main</div><ul><li>Rice</li><li>Chapati (2 pcs)</li></ul></div>
+          <div class="meal-block"><div class="mtype">Sides</div><ul><li>Dal Tadka</li><li>Paneer Masala</li><li>Rasam</li></ul></div>
+          <div class="meal-block"><div class="mtype">Extras</div><ul><li>Papad</li><li>Pickle</li><li>Curd</li></ul></div>
+        </div>
+      </div>
+      <div class="menu-day">
+        <h4>&#127769; Dinner &nbsp;<span style="font-weight:400;font-size:13px;color:#90A4AE">7:30 PM – 9:00 PM</span></h4>
+        <div class="meal-row">
+          <div class="meal-block"><div class="mtype">Main</div><ul><li>Roti (3 pcs)</li><li>Fried Rice</li></ul></div>
+          <div class="meal-block"><div class="mtype">Sides</div><ul><li>Mixed Veg Curry</li><li>Dal Makhani</li></ul></div>
+          <div class="meal-block"><div class="mtype">Dessert</div><ul><li>Kheer</li><li>Banana</li></ul></div>
+        </div>
+      </div>
+    </div>
+    <div class="ctab-panel" id="ctab-menu-week">
+      <div style="overflow-x:auto">
+        <table class="price-table" style="min-width:700px">
+          <thead><tr><th>Day</th><th>Breakfast</th><th>Lunch</th><th>Snacks</th><th>Dinner</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Monday</strong></td><td>Pongal, Chutney</td><td>Rice, Sambar, Kootu</td><td>Bajji, Tea</td><td>Chapati, Dal</td></tr>
+            <tr><td><strong>Tuesday</strong></td><td>Dosa, Idli</td><td>Rice, Rasam, Egg Curry</td><td>Cake, Coffee</td><td>Fried Rice, Manchurian</td></tr>
+            <tr><td><strong>Wednesday</strong></td><td>Upma, Puri</td><td>Rice, Dal, Aloo Masala</td><td>Samosa, Tea</td><td>Roti, Palak Paneer</td></tr>
+            <tr><td><strong>Thursday</strong></td><td>Idli, Vada</td><td>Biriyani, Raita</td><td>Vada, Coffee</td><td>Chapati, Mixed Veg</td></tr>
+            <tr><td><strong>Friday</strong></td><td>Poori Masala</td><td>Rice, Fish Curry, Rasam</td><td>Murukku, Tea</td><td>Dosa, Sambar</td></tr>
+            <tr><td><strong>Saturday</strong></td><td>Idli, Vada</td><td>Rice, Paneer Masala</td><td>Cake, Tea</td><td>Roti, Dal Makhani</td></tr>
+            <tr><td><strong>Sunday</strong></td><td>Dosa, Chutney</td><td>Special Meals (Biriyani)</td><td>Sweets</td><td>Noodles, Manchurian</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="ctab-panel" id="ctab-prices">
+      <table class="price-table">
+        <thead><tr><th>Meal / Plan</th><th>Type</th><th>Price</th><th>Timing</th></tr></thead>
+        <tbody>
+          <tr><td>Breakfast</td><td><span class="badge-veg">Veg</span></td><td>&#8377;40</td><td>7:00 – 9:00 AM</td></tr>
+          <tr><td>Lunch</td><td><span class="badge-veg">Veg</span></td><td>&#8377;70</td><td>12:00 – 2:00 PM</td></tr>
+          <tr><td>Lunch</td><td><span class="badge-nveg">Non-Veg</span></td><td>&#8377;90</td><td>12:00 – 2:00 PM</td></tr>
+          <tr><td>Snacks</td><td><span class="badge-veg">Veg</span></td><td>&#8377;25 – &#8377;40</td><td>4:00 – 5:30 PM</td></tr>
+          <tr><td>Dinner</td><td><span class="badge-veg">Veg</span></td><td>&#8377;65</td><td>7:30 – 9:00 PM</td></tr>
+          <tr><td><strong>Monthly Meal Plan (Veg)</strong></td><td><span class="badge-veg">Veg</span></td><td><strong>&#8377;3,200</strong></td><td>All meals</td></tr>
+          <tr><td><strong>Monthly Meal Plan (Non-Veg)</strong></td><td><span class="badge-nveg">Non-Veg</span></td><td><strong>&#8377;3,800</strong></td><td>All meals</td></tr>
+          <tr><td><strong>Annual Mess Plan</strong></td><td><span class="badge-veg">Veg</span></td><td><strong>&#8377;32,000</strong></td><td>All meals</td></tr>
+        </tbody>
+      </table>
+      <br>
+      <div class="info-box"><span class="ico">&#128161;</span> Meal plans can be purchased at the Canteen Office or via the Student Portal. Discounts available for SC/ST students under government scheme.</div>
+    </div>
+    <div class="ctab-panel" id="ctab-order">
+      <div class="order-form">
+        <h3 style="color:var(--primary);margin-bottom:20px;font-family:'Syne',sans-serif;">&#128722; Pre-Book Your Meal</h3>
+        <div class="form-row">
+          <div class="form-group"><label>Student Name</label><input type="text" placeholder="Enter your name"></div>
+          <div class="form-group"><label>Register Number</label><input type="text" placeholder="e.g. 22CS001"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Meal Type</label>
+            <select><option>Breakfast</option><option>Lunch</option><option>Snacks</option><option>Dinner</option></select>
+          </div>
+          <div class="form-group"><label>Date</label><input type="date"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Food Preference</label>
+            <select><option>Vegetarian</option><option>Non-Vegetarian</option></select>
+          </div>
+          <div class="form-group"><label>Special Requests</label><input type="text" placeholder="Allergy, diet, etc."></div>
+        </div>
+        <button class="btn-submit" onclick="toast('&#9989; Meal pre-booked successfully!')">Confirm Pre-Booking</button>
+      </div>
+    </div>
+    <div class="ctab-panel" id="ctab-feedback">
+      <div class="order-form">
+        <h3 style="color:var(--primary);margin-bottom:16px;font-family:'Syne',sans-serif;">&#128172; Canteen Feedback</h3>
+        <div class="form-group" style="margin-bottom:16px"><label>Your Name (optional)</label><input type="text" placeholder="Anonymous"></div>
+        <div class="form-group" style="margin-bottom:10px"><label>Rate the Food Quality</label></div>
+        <div class="stars" id="stars1">
+          <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+        </div>
+        <div class="form-group" style="margin:12px 0"><label>Rate Hygiene &amp; Cleanliness</label></div>
+        <div class="stars" id="stars2">
+          <span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span><span class="star">&#9733;</span>
+        </div>
+        <div class="form-group" style="margin-top:16px;margin-bottom:16px"><label>Comments / Suggestions</label>
+          <textarea rows="4" placeholder="Tell us how we can improve..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="toast('&#128591; Thank you for your feedback!')">Submit Feedback</button>
+      </div>
+    </div>
+    <div class="ctab-panel" id="ctab-hygiene">
+      <div class="card-grid">
+        <div class="card"><div class="card-icon" style="background:#E8F5E9">&#129382;</div><div class="card-title">Fresh Ingredients Daily</div><div class="card-desc">All vegetables and proteins are sourced fresh each morning from certified vendors. No frozen or stored raw materials.</div></div>
+        <div class="card"><div class="card-icon" style="background:#E3F2FD">&#129532;</div><div class="card-title">FSSAI Certified Kitchen</div><div class="card-desc">Our kitchen holds a valid FSSAI License. Monthly inspections by the college hygiene committee ensure standards are maintained.</div></div>
+        <div class="card"><div class="card-icon" style="background:#FFF3E0">&#127777;&#65039;</div><div class="card-title">Temperature Control</div><div class="card-desc">Food is stored and served at regulated temperatures. Hot food above 60°C, cold items below 5°C at all times.</div></div>
+        <div class="card"><div class="card-icon" style="background:#FCE4EC">&#129535;</div><div class="card-title">Sanitization Schedule</div><div class="card-desc">Tables, counters, and utensils are sanitized after every meal period. Weekly deep cleaning of the entire canteen.</div></div>
+        <div class="card"><div class="card-icon" style="background:#EDE7F6">&#128104;&#8205;&#127859;</div><div class="card-title">Staff Health Screening</div><div class="card-desc">All canteen staff undergo monthly medical checkups. Gloves, aprons, and hairnets are mandatory at all times.</div></div>
+        <div class="card"><div class="card-icon" style="background:#E0F7FA">&#128688;</div><div class="card-title">Purified Drinking Water</div><div class="card-desc">RO + UV filtered water dispensers available throughout the canteen. Water quality tested weekly.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIBRARY -->
+  <div class="section" id="sec-library">
+    <div class="sec-title"><span class="ico">&#128218;</span> Central Library</div>
+    <div class="lib-stats">
+      <div class="lib-stat"><div class="num">60K+</div><div class="lbl">Books</div></div>
+      <div class="lib-stat"><div class="num">500+</div><div class="lbl">Journals</div></div>
+      <div class="lib-stat"><div class="num">24/7</div><div class="lbl">E-Library Access</div></div>
+      <div class="lib-stat"><div class="num">5</div><div class="lbl">Reading Halls</div></div>
+    </div>
+    <div class="lib-search">
+      <input type="text" id="bookSearch" placeholder="&#128269;  Search books, journals, authors..." oninput="filterBooks()">
+      <button onclick="filterBooks()">Search</button>
+    </div>
+    <div class="book-grid" id="bookGrid">
+      <div class="book-card" data-title="Engineering Mathematics"><div class="book-cover" style="background:#E3F2FD">&#128208;</div><div class="book-title">Engineering Mathematics</div><div class="book-author">B.S. Grewal</div><span class="book-avail avail">&#10003; Available</span></div>
+      <div class="book-card" data-title="Data Structures"><div class="book-cover" style="background:#E8F5E9">&#127795;</div><div class="book-title">Data Structures &amp; Algorithms</div><div class="book-author">Thomas H. Cormen</div><span class="book-avail unavail">&#10007; Issued</span></div>
+      <div class="book-card" data-title="Operating Systems"><div class="book-cover" style="background:#FFF8E1">&#128187;</div><div class="book-title">Operating Systems</div><div class="book-author">Abraham Silberschatz</div><span class="book-avail avail">&#10003; Available</span></div>
+      <div class="book-card" data-title="Fluid Mechanics"><div class="book-cover" style="background:#E0F7FA">&#127754;</div><div class="book-title">Fluid Mechanics</div><div class="book-author">Frank White</div><span class="book-avail avail">&#10003; Available</span></div>
+      <div class="book-card" data-title="Machine Learning"><div class="book-cover" style="background:#EDE7F6">&#129302;</div><div class="book-title">Machine Learning</div><div class="book-author">Tom Mitchell</div><span class="book-avail unavail">&#10007; Issued</span></div>
+      <div class="book-card" data-title="VLSI Design"><div class="book-cover" style="background:#FCE4EC">&#128268;</div><div class="book-title">VLSI Design</div><div class="book-author">Neil Weste</div><span class="book-avail avail">&#10003; Available</span></div>
+      <div class="book-card" data-title="Chemistry"><div class="book-cover" style="background:#F3E5F5">&#9879;&#65039;</div><div class="book-title">Engineering Chemistry</div><div class="book-author">P.C. Jain</div><span class="book-avail avail">&#10003; Available</span></div>
+      <div class="book-card" data-title="Digital Electronics"><div class="book-cover" style="background:#FBE9E7">&#128267;</div><div class="book-title">Digital Electronics</div><div class="book-author">Morris Mano</div><span class="book-avail avail">&#10003; Available</span></div>
+    </div>
+    <br>
+    <div class="order-form">
+      <h3 style="color:var(--primary);margin-bottom:20px;font-family:'Syne',sans-serif;">&#128214; Request / Reserve a Book</h3>
+      <div class="form-row">
+        <div class="form-group"><label>Student Name</label><input type="text" placeholder="Enter your name"></div>
+        <div class="form-group"><label>Register Number</label><input type="text" placeholder="e.g. 22CS001"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Book Name / ISBN</label><input type="text" placeholder="Title or ISBN"></div>
+        <div class="form-group"><label>Required Date</label><input type="date"></div>
+      </div>
+      <button class="btn-submit" onclick="toast('&#128218; Book reservation request sent!')">Reserve Book</button>
+    </div>
+  </div>
+
+  <!-- LABS -->
+  <div class="section" id="sec-labs">
+    <div class="sec-title"><span class="ico">&#128302;</span> Labs &amp; Research Facilities</div>
+    <div class="info-box"><span class="ico">&#127998;</span> Live availability updated every 30 minutes. Book a lab slot via the form below.</div>
+    <div class="labs-grid">
+      <div class="lab-card"><div class="lab-header"><div class="lab-icon" style="background:#E3F2FD">&#128187;</div><div class="lab-info"><h4>Computer Science Lab</h4><span>Block A – Room 101</span></div></div><div class="lab-detail">500+ high-performance computers, 24/7 internet, specialized setups for AI, ML, and Cybersecurity projects.</div><div class="lab-avail open"><div class="dot"></div> Open – 42 seats available</div></div>
+      <div class="lab-card"><div class="lab-header"><div class="lab-icon" style="background:#E8F5E9">&#9889;</div><div class="lab-info"><h4>Electronics Lab (ECE)</h4><span>Block B – Room 203</span></div></div><div class="lab-detail">Advanced instruments: oscilloscopes, function generators, CRO, PCB design stations, and embedded systems kits.</div><div class="lab-avail busy"><div class="dot"></div> Busy – Class in progress</div></div>
+      <div class="lab-card"><div class="lab-header"><div class="lab-icon" style="background:#FFF3E0">&#128297;</div><div class="lab-info"><h4>Mechanical Workshop</h4><span>Block C – Ground Floor</span></div></div><div class="lab-detail">CNC machines, lathe, milling, 3D printers, and full fabrication facility for mechanical engineering projects.</div><div class="lab-avail open"><div class="dot"></div> Open – 18 seats available</div></div>
+      <div class="lab-card"><div class="lab-header"><div class="lab-icon" style="background:#FCE4EC">&#9879;&#65039;</div><div class="lab-info"><h4>Chemistry Research Lab</h4><span>Block A – Room 305</span></div></div><div class="lab-detail">Advanced instruments for material science, polymer research, and environmental analysis. Fume hoods and safety equipment provided.</div><div class="lab-avail open"><div class="dot"></div> Open – 10 seats available</div></div>
+      <div class="lab-card"><div class="lab-header"><div class="lab-icon" style="background:#EDE7F6">&#129302;</div><div class="lab-info"><h4>AI &amp; Data Science Lab</h4><span>Block D – Room 401</span></div></div><div class="lab-detail">GPU clusters, cloud computing terminals, and dedicated workstations for deep learning, NLP, and robotics research.</div><div class="lab-avail busy"><div class="dot"></div> Busy – Reserved until 5 PM</div></div>
+      <div class="lab-card"><div class="lab-header"><div class="lab-icon" style="background:#E0F7FA">&#127758;</div><div class="lab-info"><h4>Networking &amp; Cyber Lab</h4><span>Block D – Room 402</span></div></div><div class="lab-detail">Cisco routers, network simulators, penetration testing systems, and a secure sandbox environment for ethical hacking courses.</div><div class="lab-avail open"><div class="dot"></div> Open – 25 seats available</div></div>
+    </div>
+    <br>
+    <div class="order-form">
+      <h3 style="color:var(--primary);margin-bottom:20px;font-family:'Syne',sans-serif;">&#128197; Book a Lab Slot</h3>
+      <div class="form-row">
+        <div class="form-group"><label>Student / Staff Name</label><input type="text" placeholder="Your name"></div>
+        <div class="form-group"><label>Register / Staff ID</label><input type="text" placeholder="ID number"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Select Lab</label>
+          <select><option>Computer Science Lab</option><option>Electronics Lab (ECE)</option><option>Mechanical Workshop</option><option>Chemistry Research Lab</option><option>AI &amp; Data Science Lab</option><option>Networking &amp; Cyber Lab</option></select>
+        </div>
+        <div class="form-group"><label>Date</label><input type="date"></div>
+      </div>
+      <div class="form-group" style="margin-bottom:16px"><label>Select Time Slot</label></div>
+      <div class="timeslot-grid">
+        <div class="timeslot avail" onclick="selectSlot(this)">8–9 AM</div>
+        <div class="timeslot taken">9–10 AM</div>
+        <div class="timeslot avail" onclick="selectSlot(this)">10–11 AM</div>
+        <div class="timeslot taken">11–12 PM</div>
+        <div class="timeslot avail" onclick="selectSlot(this)">12–1 PM</div>
+        <div class="timeslot avail" onclick="selectSlot(this)">1–2 PM</div>
+        <div class="timeslot taken">2–3 PM</div>
+        <div class="timeslot avail" onclick="selectSlot(this)">3–4 PM</div>
+        <div class="timeslot avail" onclick="selectSlot(this)">4–5 PM</div>
+        <div class="timeslot taken">5–6 PM</div>
+      </div>
+      <br>
+      <div class="form-group" style="margin-bottom:16px"><label>Purpose of Booking</label><input type="text" placeholder="Project work, assignment, research..."></div>
+      <button class="btn-submit" onclick="toast('&#128302; Lab slot booked successfully!')">Book Lab Slot</button>
+    </div>
+  </div>
+
+  <!-- SPORTS -->
+  <div class="section" id="sec-sports">
+    <div class="sec-title"><span class="ico">&#9917;</span> Sports &amp; Recreation</div>
+    <div class="info-box"><span class="ico">&#127942;</span> Intramural Sports Fest 2026 registrations open! Register at the Physical Education Department by June 10.</div>
+    <div class="sports-grid">
+      <div class="sport-card"><span class="sport-ico">&#9917;</span><div class="sport-name">Football</div><div class="sport-venue">Main Ground</div><span class="sport-status open-s">Open</span></div>
+      <div class="sport-card"><span class="sport-ico">&#127936;</span><div class="sport-name">Basketball</div><div class="sport-venue">Court A &amp; B</div><span class="sport-status busy-s">In Use</span></div>
+      <div class="sport-card"><span class="sport-ico">&#127951;</span><div class="sport-name">Cricket</div><div class="sport-venue">Cricket Ground</div><span class="sport-status open-s">Open</span></div>
+      <div class="sport-card"><span class="sport-ico">&#127992;</span><div class="sport-name">Badminton</div><div class="sport-venue">Indoor Court</div><span class="sport-status busy-s">In Use</span></div>
+      <div class="sport-card"><span class="sport-ico">&#127946;</span><div class="sport-name">Swimming</div><div class="sport-venue">Olympic Pool</div><span class="sport-status open-s">Open</span></div>
+      <div class="sport-card"><span class="sport-ico">&#127934;</span><div class="sport-name">Tennis</div><div class="sport-venue">Tennis Court</div><span class="sport-status open-s">Open</span></div>
+      <div class="sport-card"><span class="sport-ico">&#127947;</span><div class="sport-name">Gym</div><div class="sport-venue">Fitness Center</div><span class="sport-status busy-s">Peak Hours</span></div>
+      <div class="sport-card"><span class="sport-ico">&#127952;</span><div class="sport-name">Volleyball</div><div class="sport-venue">Outdoor Court</div><span class="sport-status open-s">Open</span></div>
+      <div class="sport-card"><span class="sport-ico">&#129354;</span><div class="sport-name">Boxing</div><div class="sport-venue">Combat Zone</div><span class="sport-status open-s">Open</span></div>
+      <div class="sport-card"><span class="sport-ico">&#127955;</span><div class="sport-name">Table Tennis</div><div class="sport-venue">TT Room</div><span class="sport-status busy-s">In Use</span></div>
+    </div>
+    <br>
+    <div class="sec-title" style="font-size:1.2rem;margin-bottom:18px"><span class="ico">&#128197;</span> Sports Schedule This Week</div>
+    <div style="overflow-x:auto">
+      <table class="schedule-table">
+        <thead><tr><th>Day</th><th>Sport</th><th>Venue</th><th>Time</th><th>Coach</th></tr></thead>
+        <tbody>
+          <tr><td>Monday</td><td>Cricket Practice</td><td>Cricket Ground</td><td>5:00–7:00 PM</td><td>Mr. Rajesh</td></tr>
+          <tr><td>Tuesday</td><td>Basketball Match</td><td>Court A</td><td>4:30–6:30 PM</td><td>Ms. Priya</td></tr>
+          <tr><td>Wednesday</td><td>Football Training</td><td>Main Ground</td><td>5:00–7:00 PM</td><td>Mr. Arjun</td></tr>
+          <tr><td>Thursday</td><td>Swimming Competition</td><td>Olympic Pool</td><td>6:00–8:00 AM</td><td>Mr. Suresh</td></tr>
+          <tr><td>Friday</td><td>Badminton Tournament</td><td>Indoor Court</td><td>4:00–6:00 PM</td><td>Ms. Kavitha</td></tr>
+          <tr><td>Saturday</td><td>Volleyball Friendly</td><td>Outdoor Court</td><td>3:00–5:00 PM</td><td>Mr. Vikram</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <br>
+    <div class="order-form">
+      <h3 style="color:var(--primary);margin-bottom:20px;font-family:'Syne',sans-serif;">&#127942; Register for Sports Event</h3>
+      <div class="form-row">
+        <div class="form-group"><label>Student Name</label><input type="text" placeholder="Full name"></div>
+        <div class="form-group"><label>Register Number</label><input type="text" placeholder="e.g. 22ME005"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Sport</label>
+          <select><option>Football</option><option>Basketball</option><option>Cricket</option><option>Badminton</option><option>Swimming</option><option>Tennis</option><option>Volleyball</option><option>Boxing</option><option>Table Tennis</option></select>
+        </div>
+        <div class="form-group"><label>Event Type</label>
+          <select><option>Individual</option><option>Team (Captain)</option><option>Team (Player)</option></select>
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom:16px"><label>Previous Achievements (optional)</label>
+        <textarea rows="3" placeholder="District level, State level achievements..."></textarea>
+      </div>
+      <button class="btn-submit" onclick="toast('&#127885; Sports registration successful!')">Register Now</button>
+    </div>
+  </div>
+
+</div><!-- /content -->
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<!-- ✅ FIXED: JS file correctly linked -->
+<script src="Campuslife.js"></script>
+</body>
+</html>

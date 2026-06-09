@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admissions | EduPortal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="Admission.css"/>
+</head>
+<body>
+
+  <!-- PROGRESS BAR -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span class="logo-icon">🎓</span>
+        <span class="logo-text">Prince EduPortal</span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="home-link">
+        Home</a></li>
+        <li><a href="#apply">Apply</a></li>
+        <li><a href="#eligibility">Eligibility</a></li>
+        <li><a href="#dates">Dates</a></li>
+        <li><a href="#documents">Documents</a></li>
+        <li><a href="#fees">Fees</a></li>
+        <li><a href="#form">Admission Form</a></li>
+      </ul>
+      <button class="back-btn" onclick="history.back()">← Back</button>
+      <button class="nav-cta" onclick="scrollToForm()">Apply Now →</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-circles">
+      <div class="circle c1"></div>
+      <div class="circle c2"></div>
+      <div class="circle c3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge animate-in" style="--delay:0.1s">
+        <span class="badge-dot"></span> Admissions Open 2025–26
+      </div>
+      <h1 class="hero-title animate-in" style="--delay:0.2s">
+        Begin Your <br/><em>Academic Journey</em>
+      </h1>
+      <p class="hero-subtitle animate-in" style="--delay:0.3s">
+        Join thousands of students who chose excellence. Streamlined admissions, world-class faculty, and a campus that inspires.
+      </p>
+      <div class="hero-actions animate-in" style="--delay:0.4s">
+        <button class="btn-primary" onclick="scrollToForm()">Start Application</button>
+        <button class="btn-secondary" onclick="document.getElementById('eligibility').scrollIntoView({behavior:'smooth'})">Check Eligibility</button>
+      </div>
+      <div class="hero-stats animate-in" style="--delay:0.5s">
+        <div class="stat"><span class="stat-num" data-target="5000">0</span><span>+</span><p>Students</p></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num" data-target="98">0</span><span>%</span><p>Placement</p></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num" data-target="42">0</span><span>+</span><p>Programmes</p></div>
+      </div>
+    </div>
+    <div class="hero-visual animate-in" style="--delay:0.3s">
+      <div class="visual-card vc1">
+        <div class="vc-icon">📚</div>
+        <div>
+          <p class="vc-label">Application Status</p>
+          <p class="vc-value">Open</p>
+        </div>
+        <span class="vc-badge live">LIVE</span>
+      </div>
+      <div class="visual-card vc2">
+        <div class="vc-icon">📅</div>
+        <div>
+          <p class="vc-label">Last Date</p>
+          <p class="vc-value">Aug 30, 2025</p>
+        </div>
+      </div>
+      <div class="visual-card vc3">
+        <div class="vc-icon">✅</div>
+        <div>
+          <p class="vc-label">Merit List</p>
+          <p class="vc-value">Sep 10, 2025</p>
+        </div>
+      </div>
+      <div class="visual-illus">
+        <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="150" cy="150" r="130" fill="#e0f2fe" opacity="0.6"/>
+          <circle cx="150" cy="150" r="90" fill="#bae6fd" opacity="0.5"/>
+          <text x="150" y="168" text-anchor="middle" font-size="80">🎓</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK LINKS TABS -->
+  <section class="tabs-section">
+    <div class="container">
+      <div class="tabs" id="mainTabs">
+        <button class="tab active" data-tab="apply" onclick="switchTab('apply')">📝 Apply Online</button>
+        <button class="tab" data-tab="eligibility" onclick="switchTab('eligibility')">✅ Eligibility</button>
+        <button class="tab" data-tab="dates" onclick="switchTab('dates')">📅 Dates</button>
+        <button class="tab" data-tab="documents" onclick="switchTab('documents')">📄 Documents</button>
+        <button class="tab" data-tab="fees" onclick="switchTab('fees')">💳 Fee Details</button>
+      </div>
+      <div class="tab-content-area">
+
+        <!-- Apply Online -->
+        <div class="tab-panel active" id="tab-apply">
+          <div class="tab-grid">
+            <div class="tab-info">
+              <h2>Apply Online</h2>
+              <p>Our fully digital application process lets you apply from anywhere in 3 simple steps. No physical visits required for the initial application.</p>
+              <ol class="steps-list">
+                <li><span>1</span> Register & create your profile</li>
+                <li><span>2</span> Fill the application form & upload documents</li>
+                <li><span>3</span> Pay the application fee & submit</li>
+              </ol>
+              <button class="btn-primary" onclick="scrollToForm()">Apply Now →</button>
+            </div>
+            <div class="tab-cards">
+              <div class="info-card">
+                <div class="ic-icon">🖥️</div>
+                <p>100% Online Process</p>
+              </div>
+              <div class="info-card">
+                <div class="ic-icon">⚡</div>
+                <p>Instant Confirmation</p>
+              </div>
+              <div class="info-card">
+                <div class="ic-icon">🔒</div>
+                <p>Secure & Encrypted</p>
+              </div>
+              <div class="info-card">
+                <div class="ic-icon">📱</div>
+                <p>Mobile Friendly</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Eligibility -->
+        <div class="tab-panel" id="tab-eligibility">
+          <h2>Eligibility Criteria</h2>
+          <div class="eligibility-grid">
+            <div class="elig-card">
+              <div class="elig-header"><span>🎓</span> UG Programmes</div>
+              <ul>
+                <li>Passed 10+2 / HSC or equivalent</li>
+                <li>Minimum 50% aggregate marks</li>
+                <li>Age: 17–22 years as on July 1</li>
+                <li>Valid entrance exam score (if applicable)</li>
+              </ul>
+              <div class="elig-badge">B.Sc · B.Com · B.A · BCA · B.Tech</div>
+            </div>
+            <div class="elig-card">
+              <div class="elig-header"><span>📜</span> PG Programmes</div>
+              <ul>
+                <li>Bachelor's degree in relevant field</li>
+                <li>Minimum 55% aggregate marks</li>
+                <li>Valid GATE/NET/University Entrance (for select courses)</li>
+                <li>Work experience preferred (MBA)</li>
+              </ul>
+              <div class="elig-badge">M.Sc · M.Com · MBA · MCA · M.Tech</div>
+            </div>
+            <div class="elig-card">
+              <div class="elig-header"><span>🔬</span> Research / PhD</div>
+              <ul>
+                <li>PG degree with 60% marks</li>
+                <li>Valid UGC-NET / CSIR-NET / GATE</li>
+                <li>Research proposal required</li>
+                <li>Interview by faculty committee</li>
+              </ul>
+              <div class="elig-badge">Ph.D · M.Phil · Research Fellow</div>
+            </div>
+          </div>
+          <div class="eligibility-checker" id="eligibility">
+            <h3>🧮 Quick Eligibility Checker</h3>
+            <div class="checker-form">
+              <select id="progLevel">
+                <option value="">Select Programme Level</option>
+                <option value="ug">UG (After 10+2)</option>
+                <option value="pg">PG (After Graduation)</option>
+                <option value="phd">PhD / Research</option>
+              </select>
+              <input type="number" id="marksPct" placeholder="Your aggregate % (e.g. 75)" min="0" max="100"/>
+              <button class="btn-primary" onclick="checkEligibility()">Check Now</button>
+            </div>
+            <div class="checker-result" id="checkerResult"></div>
+          </div>
+        </div>
+
+        <!-- Dates -->
+        <div class="tab-panel" id="tab-dates">
+          <h2>Important Dates</h2>
+          <div class="timeline" id="dates">
+            <div class="tl-item completed">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <span class="tl-date">May 1, 2025</span>
+                <h4>Application Portal Opens</h4>
+                <p>Online applications begin. Register and create your profile.</p>
+              </div>
+            </div>
+            <div class="tl-item completed">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <span class="tl-date">Jul 15, 2025</span>
+                <h4>Last Date (Round 1)</h4>
+                <p>Submit your application and upload all required documents.</p>
+              </div>
+            </div>
+            <div class="tl-item active">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <span class="tl-date">Aug 1–10, 2025</span>
+                <h4>Entrance / Written Test</h4>
+                <p>For select programmes. Admit cards released 7 days prior.</p>
+                <span class="tl-badge">Upcoming</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <span class="tl-date">Aug 30, 2025</span>
+                <h4>Last Date (Round 2 / Spot)</h4>
+                <p>Final deadline for remaining seat applications.</p>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <span class="tl-date">Sep 10, 2025</span>
+                <h4>Merit List Published</h4>
+                <p>First merit list released on the portal. Check your status.</p>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <span class="tl-date">Sep 20–30, 2025</span>
+                <h4>Fee Payment & Enrollment</h4>
+                <p>Confirm your seat by paying the first semester fee.</p>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <div class="tl-content">
+                <span class="tl-date">Oct 1, 2025</span>
+                <h4>Classes Begin</h4>
+                <p>Orientation and first day of the academic year 2025–26.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Documents -->
+        <div class="tab-panel" id="tab-documents">
+          <h2>Documents Required</h2>
+          <p class="tab-subtitle">Keep scanned copies ready (PDF/JPG, max 1MB each) before starting your application.</p>
+          <div class="doc-grid" id="documents">
+            <div class="doc-item" onclick="toggleDoc(this)">
+              <span class="doc-icon">🪪</span>
+              <div>
+                <strong>Aadhaar Card / ID Proof</strong>
+                <p>Government-issued photo ID (Aadhaar, Passport, or Voter ID)</p>
+              </div>
+              <span class="doc-check">✓</span>
+            </div>
+            <div class="doc-item" onclick="toggleDoc(this)">
+              <span class="doc-icon">📋</span>
+              <div>
+                <strong>10th Mark Sheet</strong>
+                <p>Secondary School Certificate with official seal</p>
+              </div>
+              <span class="doc-check">✓</span>
+            </div>
+            <div class="doc-item" onclick="toggleDoc(this)">
+              <span class="doc-icon">📋</span>
+              <div>
+                <strong>12th / HSC Mark Sheet</strong>
+                <p>Higher Secondary Certificate (for UG applicants)</p>
+              </div>
+              <span class="doc-check">✓</span>
+            </div>
+            <div class="doc-item" onclick="toggleDoc(this)">
+              <span class="doc-icon">🎓</span>
+              <div>
+                <strong>Graduation Certificate</strong>
+                <p>Degree certificate + consolidated mark sheet (for PG)</p>
+              </div>
+              <span class="doc-check">✓</span>
+            </div>
+            <div class="doc-item" onclick="toggleDoc(this)">
+              <span class="doc-icon">📸</span>
+              <div>
+                <strong>Passport-size Photo</strong>
+                <p>Recent coloured photograph with white background</p>
+              </div>
+              <span class="doc-check">✓</span>
+            </div>
+            <div class="doc-item" onclick="toggleDoc(this)">
+              <span class="doc-icon">🏫</span>
+              <div>
+                <strong>Transfer / Migration Certificate</strong>
+                <p>From last attended institution</p>
+              </div>
+              <span class="doc-check">✓</span>
+            </div>
+            <div class="doc-item" onclick="toggleDoc(this)">
+              <span class="doc-icon">📜</span>
+              <div>
+                <strong>Caste / Category Certificate</strong>
+                <p>Required for SC/ST/OBC/EWS reservation claims</p>
+              </div>
+              <span class="doc-check">✓</span>
+            </div>
+            <div class="doc-item" onclick="toggleDoc(this)">
+              <span class="doc-icon">🏆</span>
+              <div>
+                <strong>Entrance Exam Scorecard</strong>
+                <p>GATE / NET / University Test result (if applicable)</p>
+              </div>
+              <span class="doc-check">✓</span>
+            </div>
+          </div>
+          <div class="doc-tracker">
+            <div class="dt-bar-wrap"><div class="dt-bar" id="docBar"></div></div>
+            <p id="docProgress">0 / 8 documents marked ready</p>
+          </div>
+        </div>
+
+        <!-- Fee Details -->
+        <div class="tab-panel" id="tab-fees">
+          <h2>Fee Details</h2>
+          <p class="tab-subtitle">Transparent fee structure with no hidden charges.</p>
+          <div class="fee-table-wrap" id="fees">
+            <table class="fee-table">
+              <thead>
+                <tr>
+                  <th>Programme</th>
+                  <th>Tuition Fee / Year</th>
+                  <th>Application Fee</th>
+                  <th>Hostel (Optional)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>B.A / B.Sc / B.Com</td><td>₹45,000</td><td>₹500</td><td>₹60,000</td></tr>
+                <tr><td>BCA / BBA</td><td>₹55,000</td><td>₹500</td><td>₹60,000</td></tr>
+                <tr><td>B.Tech (4 Years)</td><td>₹1,20,000</td><td>₹1,000</td><td>₹75,000</td></tr>
+                <tr><td>M.A / M.Sc / M.Com</td><td>₹50,000</td><td>₹500</td><td>₹65,000</td></tr>
+                <tr><td>MBA (2 Years)</td><td>₹1,50,000</td><td>₹1,000</td><td>₹75,000</td></tr>
+                <tr><td>MCA / M.Tech</td><td>₹80,000</td><td>₹750</td><td>₹70,000</td></tr>
+                <tr><td>Ph.D Programme</td><td>₹30,000</td><td>₹1,000</td><td>₹65,000</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="fee-notes">
+            <div class="fn-item"><span>💡</span> Scholarship up to 75% available for merit students</div>
+            <div class="fn-item"><span>📆</span> Fee can be paid in 2 installments per year</div>
+            <div class="fn-item"><span>🏦</span> Education loan assistance provided</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMISSION FORM -->
+  <section class="form-section" id="form">
+    <div class="container">
+      <div class="form-header">
+        <div class="section-tag">Step-by-Step Application</div>
+        <h2>Admission Form</h2>
+        <p>Complete your application in 4 simple steps. Your progress is auto-saved.</p>
+      </div>
+
+      <!-- Stepper -->
+      <div class="stepper" id="stepper">
+        <div class="step-item active" data-step="1">
+          <div class="step-circle">1</div>
+          <span>Personal Info</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item" data-step="2">
+          <div class="step-circle">2</div>
+          <span>Academic Details</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item" data-step="3">
+          <div class="step-circle">3</div>
+          <span>Programme Choice</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item" data-step="4">
+          <div class="step-circle">4</div>
+          <span>Review & Submit</span>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <!-- Step 1 -->
+        <div class="form-step active" id="step1">
+          <h3>Personal Information</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>First Name <span class="req">*</span></label>
+              <input type="text" id="firstName" placeholder="Enter first name" oninput="validateField(this)"/>
+              <span class="field-error" id="err-firstName"></span>
+            </div>
+            <div class="form-group">
+              <label>Last Name <span class="req">*</span></label>
+              <input type="text" id="lastName" placeholder="Enter last name" oninput="validateField(this)"/>
+              <span class="field-error" id="err-lastName"></span>
+            </div>
+            <div class="form-group">
+              <label>Date of Birth <span class="req">*</span></label>
+              <input type="date" id="dob" oninput="validateField(this); calcAge()"/>
+              <span class="field-hint" id="ageDisplay"></span>
+            </div>
+            <div class="form-group">
+              <label>Gender <span class="req">*</span></label>
+              <select id="gender">
+                <option value="">Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Non-binary</option>
+                <option>Prefer not to say</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Email Address <span class="req">*</span></label>
+              <input type="email" id="email" placeholder="you@example.com" oninput="validateField(this)"/>
+              <span class="field-error" id="err-email"></span>
+            </div>
+            <div class="form-group">
+              <label>Mobile Number <span class="req">*</span></label>
+              <input type="tel" id="mobile" placeholder="10-digit mobile number" maxlength="10" oninput="validateField(this)"/>
+              <span class="field-error" id="err-mobile"></span>
+            </div>
+            <div class="form-group full">
+              <label>Residential Address <span class="req">*</span></label>
+              <textarea id="address" rows="2" placeholder="Door No., Street, City, State, PIN"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Category</label>
+              <select id="category">
+                <option value="">General</option>
+                <option>OBC</option>
+                <option>SC</option>
+                <option>ST</option>
+                <option>EWS</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Photo Upload <span class="req">*</span></label>
+              <div class="file-upload-zone" id="photoZone" onclick="document.getElementById('photoFile').click()">
+                <span class="fuz-icon">📷</span>
+                <p id="photoLabel">Click to upload passport photo</p>
+                <input type="file" id="photoFile" accept="image/*" style="display:none" onchange="previewPhoto(this)"/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="form-step" id="step2">
+          <h3>Academic Details</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>10th School Name <span class="req">*</span></label>
+              <input type="text" id="school10" placeholder="School name"/>
+            </div>
+            <div class="form-group">
+              <label>10th Board <span class="req">*</span></label>
+              <select id="board10">
+                <option value="">Select Board</option>
+                <option>CBSE</option><option>ICSE</option><option>State Board</option><option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>10th Year of Passing</label>
+              <input type="number" id="year10" placeholder="e.g. 2020" min="2000" max="2025"/>
+            </div>
+            <div class="form-group">
+              <label>10th Percentage <span class="req">*</span></label>
+              <div class="percent-input">
+                <input type="number" id="pct10" placeholder="e.g. 85" min="0" max="100" oninput="updateGrade('pct10','grade10')"/>
+                <span class="percent-badge" id="grade10">—</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>12th / HSC School Name</label>
+              <input type="text" id="school12" placeholder="School / College name"/>
+            </div>
+            <div class="form-group">
+              <label>12th Board</label>
+              <select id="board12">
+                <option value="">Select Board</option>
+                <option>CBSE</option><option>ICSE</option><option>State Board</option><option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>12th Stream</label>
+              <select id="stream12">
+                <option value="">Select Stream</option>
+                <option>Science (PCM)</option><option>Science (PCB)</option><option>Commerce</option><option>Arts/Humanities</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>12th Percentage</label>
+              <div class="percent-input">
+                <input type="number" id="pct12" placeholder="e.g. 78" min="0" max="100" oninput="updateGrade('pct12','grade12')"/>
+                <span class="percent-badge" id="grade12">—</span>
+              </div>
+            </div>
+            <div class="form-group full">
+              <label>Any Entrance Exam Score</label>
+              <div class="entrance-row">
+                <select id="entranceExam">
+                  <option value="">Select Exam</option>
+                  <option>JEE Main</option><option>NEET</option><option>GATE</option><option>CAT</option><option>University Entrance</option><option>None</option>
+                </select>
+                <input type="text" id="entranceScore" placeholder="Score / Percentile"/>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="form-step" id="step3">
+          <h3>Programme Choice</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Programme Level <span class="req">*</span></label>
+              <select id="progLevelForm" onchange="updateCourses()">
+                <option value="">Select Level</option>
+                <option value="ug">Under Graduate (UG)</option>
+                <option value="pg">Post Graduate (PG)</option>
+                <option value="phd">Ph.D / Research</option>
+                <option value="diploma">Diploma</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Preferred Course <span class="req">*</span></label>
+              <select id="courseSelect">
+                <option value="">— Select Programme Level first —</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>2nd Preference (Optional)</label>
+              <select id="course2nd">
+                <option value="">No second preference</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Mode of Study</label>
+              <div class="radio-group">
+                <label class="radio-opt"><input type="radio" name="mode" value="regular" checked/> Regular</label>
+                <label class="radio-opt"><input type="radio" name="mode" value="distance"/> Distance</label>
+                <label class="radio-opt"><input type="radio" name="mode" value="online"/> Online</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Hostel Required?</label>
+              <div class="toggle-wrap">
+                <label class="toggle-switch">
+                  <input type="checkbox" id="hostelToggle"/>
+                  <span class="toggle-slider"></span>
+                </label>
+                <span id="hostelLabel">No</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Scholarship Interest</label>
+              <div class="toggle-wrap">
+                <label class="toggle-switch">
+                  <input type="checkbox" id="scholarToggle"/>
+                  <span class="toggle-slider"></span>
+                </label>
+                <span id="scholarLabel">No</span>
+              </div>
+            </div>
+            <div class="form-group full">
+              <label>Statement of Purpose (Optional)</label>
+              <textarea id="sop" rows="4" placeholder="Why do you want to join this programme? What are your goals? (max 500 characters)" maxlength="500" oninput="updateSopCount()"></textarea>
+              <span class="char-count" id="sopCount">0 / 500</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 Review -->
+        <div class="form-step" id="step4">
+          <h3>Review & Submit</h3>
+          <div class="review-section" id="reviewContent">
+            <!-- Populated by JS -->
+          </div>
+          <div class="declaration">
+            <label class="checkbox-label">
+              <input type="checkbox" id="declarationCheck" onchange="toggleSubmit()"/>
+              <span>I hereby declare that all the information provided is true and correct to the best of my knowledge. I understand that any false information may result in cancellation of admission.</span>
+            </label>
+          </div>
+          <div class="captcha-box">
+            <div class="captcha-display" id="captchaDisplay"></div>
+            <input type="text" id="captchaInput" placeholder="Enter the code above"/>
+            <button class="btn-icon" onclick="refreshCaptcha()" title="Refresh">↻</button>
+          </div>
+          <button class="btn-submit" id="submitBtn" disabled onclick="submitForm()">
+            Submit Application →
+          </button>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="form-nav">
+          <button class="btn-outline" id="prevBtn" onclick="changeStep(-1)" style="display:none">← Back</button>
+          <div class="step-indicator" id="stepIndicator">Step 1 of 4</div>
+          <button class="btn-primary" id="nextBtn" onclick="changeStep(1)">Next →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUCCESS MODAL -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal-card">
+      <div class="modal-icon">🎉</div>
+      <h2>Application Submitted!</h2>
+      <p>Your application has been received successfully. You will receive a confirmation on your registered email.</p>
+      <div class="modal-id">Application ID: <strong id="appId"></strong></div>
+      <button class="btn-primary" onclick="closeModal()">Done</button>
+    </div>
+  </div>
+
+  <!-- STICKY APPLY BUTTON (mobile) -->
+  <div class="sticky-apply" id="stickyApply">
+    <button onclick="scrollToForm()">📝 Apply Now — 2025</button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-icon">🎓</span> EduPortal Admissions
+        <p>Excellence in Education since 1985</p>
+      </div>
+      <div class="footer-links">
+        <a href="contact.html">Contact Us</a>
+        <a href="#">FAQ</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Help Desk</a>
+      </div>
+      <p class="footer-copy">© 2025 EduPortal. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="Admission.js"></script>
+</body>
+</html>

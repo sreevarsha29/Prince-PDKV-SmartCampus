@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Companies | Placement Cell</title>
+  <link rel="stylesheet" href="company.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <header class="header" id="header">
+    <div class="nav-wrap">
+      <a href="http://127.0.0.1:5500/Home.html" class="brand">
+        <div class="brand-icon"><i class="fas fa-university"></i></div>
+        <div class="brand-text">
+          <span class="college-name">Prince Dr.K. Vasudevan College</span>
+          <span class="dept-name">Placement Cell</span>
+        </div>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">Home</a>
+        <a href="About.html">About Us</a>
+        <a href="Academics.html">Academics</a>
+        <a href="Admission.html">Admissions</a>
+        <a href="CampusLife.html">Campus Life</a>
+        <a href="placement.html" class="nav-active">Placements</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ═══ PAGE BANNER ═══ -->
+  <section class="page-banner">
+    <div class="banner-inner">
+      <nav class="breadcrumb">
+        <a href="http://127.0.0.1:5500/Home.html">Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <a href="http://127.0.0.1:5500/placement.html">Placements</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>Companies</span>
+      </nav>
+      <h1>Recruiting <em>Companies</em></h1>
+      <p>Top organizations that recruit our students — roles, packages & eligibility at a glance</p>
+      <div class="banner-stats">
+        <div class="bstat"><span class="bnum">85+</span><span class="blbl">Companies</span></div>
+        <div class="bdivider"></div>
+        <div class="bstat"><span class="bnum">42 LPA</span><span class="blbl">Highest CTC</span></div>
+        <div class="bdivider"></div>
+        <div class="bstat"><span class="bnum">94%</span><span class="blbl">Placed</span></div>
+        <div class="bdivider"></div>
+        <div class="bstat"><span class="bnum">8.6 LPA</span><span class="blbl">Avg CTC</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FILTER BAR ═══ -->
+  <div class="filter-bar">
+    <div class="filter-inner">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="Search company or role..."/>
+      </div>
+      <div class="filter-chips" id="filterChips">
+        <button class="chip active" data-cat="all">All</button>
+        <button class="chip" data-cat="product">Product</button>
+        <button class="chip" data-cat="service">Service / IT</button>
+        <button class="chip" data-cat="mnc">MNC</button>
+        <button class="chip" data-cat="startup">Startup</button>
+        <button class="chip" data-cat="finance">Finance</button>
+      </div>
+      <select class="sort-select" id="sortSelect">
+        <option value="default">Sort: Default</option>
+        <option value="ctc-high">CTC: High → Low</option>
+        <option value="ctc-low">CTC: Low → High</option>
+        <option value="name">Name A–Z</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- ═══ MAIN CONTENT ═══ -->
+  <main class="page-main">
+    <div class="main-wrap">
+
+      <!-- LEFT — COMPANY LIST -->
+      <aside class="company-sidebar">
+        <div class="sidebar-head">
+          <span id="compCount">Loading...</span>
+        </div>
+        <ul class="company-list" id="companyList">
+          <!-- JS fills -->
+        </ul>
+      </aside>
+
+      <!-- RIGHT — DETAIL PANEL -->
+      <section class="detail-panel" id="detailPanel">
+        <!-- Default state -->
+        <div class="detail-empty" id="emptyState">
+          <div class="empty-icon"><i class="fas fa-building"></i></div>
+          <h3>Select a Company</h3>
+          <p>Click on any company from the list to view job roles, packages and eligibility criteria.</p>
+        </div>
+        <!-- Detail content (JS fills) -->
+        <div class="detail-content hidden" id="detailContent"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ═══ ELIGIBILITY SECTION ═══ -->
+  <section class="elig-section">
+    <div class="section-wrap">
+      <div class="section-head">
+        <span class="section-tag">General Guidelines</span>
+        <h2>Eligibility <span>Criteria</span></h2>
+        <p>Standard requirements applicable across most recruiting companies</p>
+      </div>
+      <div class="elig-grid">
+        <div class="elig-box">
+          <div class="ebox-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h4>Academic</h4>
+          <ul>
+            <li>Min 60% in Class X & XII</li>
+            <li>CGPA ≥ 6.0 (varies per company)</li>
+            <li>No active arrears/backlogs</li>
+            <li>All semester results submitted</li>
+          </ul>
+        </div>
+        <div class="elig-box">
+          <div class="ebox-icon"><i class="fas fa-calendar-check"></i></div>
+          <h4>Attendance & Conduct</h4>
+          <ul>
+            <li>Minimum 75% attendance</li>
+            <li>No disciplinary actions</li>
+            <li>Registered with Placement Cell</li>
+            <li>Attended mandatory orientation</li>
+          </ul>
+        </div>
+        <div class="elig-box">
+          <div class="ebox-icon"><i class="fas fa-laptop-code"></i></div>
+          <h4>Technical Skills</h4>
+          <ul>
+            <li>DSA & problem solving basics</li>
+            <li>Core CS / Engineering subjects</li>
+            <li>Aptitude & reasoning ability</li>
+            <li>Good communication skills</li>
+          </ul>
+        </div>
+        <div class="elig-box">
+          <div class="ebox-icon"><i class="fas fa-file-alt"></i></div>
+          <h4>Documents Required</h4>
+          <ul>
+            <li>Updated résumé (1 page preferred)</li>
+            <li>All semester mark sheets</li>
+            <li>Aadhar / ID proof</li>
+            <li>Recent passport size photo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="footer-wrap">
+      <div class="footer-brand">
+        <div class="brand-icon sm"><i class="fas fa-university"></i></div>
+        <div>
+          <strong>Prince Dr.K. Vasudevan College</strong>
+          <span>Placement & Training Cell</span>
+        </div>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="About.html">About Us</a>
+        <a href="placement.html">Placements</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+      <p class="footer-copy">© 2025 Prince Dr.K. Vasudevan College. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="company.js"></script>
+</body>
+</html>

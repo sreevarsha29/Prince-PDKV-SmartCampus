@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PDKVCET — Student &amp; Faculty Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+<link rel="stylesheet" href="login.css"/>
+</head>
+<body>
+
+<!-- ═══════════ LOGIN ═══════════ -->
+<div id="loginPage" class="screen">
+  <div class="login-bg-circles"><span></span><span></span><span></span></div>
+  <div class="login-header">
+    <div class="login-logo">🎓</div>
+    <h1>Prince Dr. K. <span>Vasudevan</span><br/>College of Engg &amp; Tech</h1>
+    <p>Student &amp; Faculty Portal · TNEA: 4116 · NAAC A+</p>
+  </div>
+  <div class="login-tabs">
+    <button class="ltab active" onclick="switchTab('student')"><i class="fas fa-user-graduate"></i> Student</button>
+    <button class="ltab" onclick="switchTab('teacher')"><i class="fas fa-chalkboard-teacher"></i> Faculty</button>
+  </div>
+  <div class="login-box">
+    <!-- Student -->
+    <div class="lform active" id="studentLogin">
+      <h2>Student Login</h2>
+      <p class="lsub">Access your academic dashboard</p>
+      <div class="fg"><label>Roll Number</label><div class="iw"><i class="fas fa-id-card"></i><input type="text" value="721121CS001"/></div></div>
+      <div class="fg"><label>Password</label><div class="iw"><i class="fas fa-lock"></i><input type="password" value="pass1234"/></div></div>
+      <div class="fg"><label>Department</label><div class="iw"><i class="fas fa-building"></i><select><option>Computer Science &amp; Engineering</option><option>Electronics &amp; Communication</option><option>Mechanical Engineering</option><option>Civil Engineering</option></select></div></div>
+      <button class="btn-login" onclick="loginAs('student')"><i class="fas fa-sign-in-alt"></i> Login to Student Portal</button>
+      <div class="demo-hint"><p>Demo · Roll: <b>721121CS001</b> · Password: <b>pass1234</b></p></div>
+    </div>
+    <!-- Teacher -->
+    <div class="lform" id="teacherLogin">
+      <h2>Faculty Login</h2>
+      <p class="lsub">Access your faculty dashboard</p>
+      <div class="fg"><label>Employee ID</label><div class="iw"><i class="fas fa-id-badge"></i><input type="text" value="FAC-CS-001"/></div></div>
+      <div class="fg"><label>Password</label><div class="iw"><i class="fas fa-lock"></i><input type="password" value="pass1234"/></div></div>
+      <div class="fg"><label>Department</label><div class="iw"><i class="fas fa-building"></i><select><option>Computer Science &amp; Engineering</option><option>Electronics &amp; Communication</option><option>Mechanical Engineering</option></select></div></div>
+      <button class="btn-login" onclick="loginAs('teacher')"><i class="fas fa-sign-in-alt"></i> Login to Faculty Portal</button>
+      <div class="demo-hint"><p>Demo · ID: <b>FAC-CS-001</b> · Password: <b>pass1234</b></p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ PERSONAL DETAILS FORM (Student) ═══════════ -->
+<div id="studentForm" class="form-screen">
+  <div class="form-container">
+    <div class="form-header">
+      <h2><i class="fas fa-user-edit"></i> Complete Your Profile</h2>
+      <p>Fill in your personal details to access the student dashboard</p>
+    </div>
+    <div class="form-grid">
+      <div class="fg2"><label>Full Name *</label><input type="text" id="sFullName" placeholder="Your full name"/></div>
+      <div class="fg2"><label>Email *</label><input type="email" id="sEmail" placeholder="your.email@pdkvcet.ac.in"/></div>
+      <div class="fg2"><label>Mobile Number *</label><input type="tel" id="sMobile" placeholder="+91 9XXXXXXXX"/></div>
+      <div class="fg2"><label>Date of Birth *</label><input type="date" id="sDOB"/></div>
+      <div class="fg2"><label>Gender *</label><select id="sGender"><option value="">Select Gender</option><option value="Male">Male</option><option value="Female">Female</option><option value="Other">Other</option></select></div>
+      <div class="fg2"><label>Blood Group</label><select id="sBlood"><option value="">Select Blood Group</option><option value="O+">O+</option><option value="O-">O-</option><option value="A+">A+</option><option value="A-">A-</option><option value="B+">B+</option><option value="B-">B-</option><option value="AB+">AB+</option><option value="AB-">AB-</option></select></div>
+      <div class="fg2" style="grid-column: 1/-1"><label>Address *</label><textarea id="sAddress" placeholder="Street address" style="resize: vertical; min-height: 80px;"></textarea></div>
+      <div class="fg2"><label>Guardian Name *</label><input type="text" id="sGuardian" placeholder="Parent or guardian name"/></div>
+      <div class="fg2"><label>Guardian Mobile *</label><input type="tel" id="sGuardianMobile" placeholder="+91 XXXXXXXXXX"/></div>
+      <div class="fg2"><label>Category *</label><select id="sCategory"><option value="">Select Category</option><option value="OC">OC (Open)</option><option value="OBC">OBC</option><option value="SC">SC</option><option value="ST">ST</option></select></div>
+      <div class="fg2"><label>Aadhar Number</label><input type="text" id="sAadhar" placeholder="XXXX XXXX XXXX (Last 4 digits)" maxlength="12"/></div>
+    </div>
+    <div class="form-actions">
+      <button class="btn-p" onclick="submitStudentForm()" style="min-width: 180px"><i class="fas fa-check-circle"></i> Continue to Dashboard</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ STUDENT DASHBOARD ═══════════ -->
+<div id="studentDash" class="screen">
+  <div class="overlay" id="sOverlay" onclick="closeSidebar('s')"></div>
+  <div class="sidebar" id="sSidebar">
+    <div class="sb-logo">
+      <div class="sb-icon">🎓</div>
+      <div class="sb-name">Prince Dr. K. <span>Vasudevan</span><br/>College of Engg</div>
+    </div>
+    <div class="sb-role">Student Portal</div>
+    <nav class="sb-nav">
+      <div class="nl">Main</div>
+      <div class="ni active" onclick="showSec('s','sDash',this)"><i class="fas fa-th-large"></i><span>Dashboard</span></div>
+      <div class="nl">Academics</div>
+      <div class="ni" onclick="showSec('s','sProfile',this)"><i class="fas fa-user-circle"></i><span>Personal Details</span></div>
+      <div class="ni" onclick="showSec('s','sAttend',this)"><i class="fas fa-clipboard-check"></i><span>Attendance</span></div>
+      <div class="ni" onclick="showSec('s','sMarks',this)"><i class="fas fa-file-alt"></i><span>Marks</span></div>
+      <div class="ni" onclick="showSec('s','sResult',this)"><i class="fas fa-graduation-cap"></i><span>Semester Result</span></div>
+      <div class="ni" onclick="showSec('s','sTT',this)"><i class="fas fa-calendar-week"></i><span>Timetable</span></div>
+      <div class="ni" onclick="showSec('s','sCGPA',this)"><i class="fas fa-calculator"></i><span>CGPA Calculator</span></div>
+      <div class="nl">Services</div>
+      <div class="ni" onclick="showSec('s','sFee',this)"><i class="fas fa-credit-card"></i><span>Fee Payment</span></div>
+      <div class="ni" onclick="showSec('s','sCerts',this)"><i class="fas fa-certificate"></i><span>Certificates</span></div>
+      <div class="ni" onclick="showSec('s','sGriev',this)"><i class="fas fa-comments"></i><span>Grievance</span></div>
+      <div class="nl">Campus</div>
+      <div class="ni" onclick="showSec('s','sEvents',this)"><i class="fas fa-calendar-star"></i><span>Events</span></div>
+      <div class="ni" onclick="showSec('s','sNotices',this)"><i class="fas fa-bell"></i><span>Notices</span><span class="nb">3</span></div>
+    </nav>
+    <div class="sb-user">
+      <div class="sb-av">AR</div>
+      <div class="sb-ui"><div class="sb-un">Arjun Raghunathan</div><div class="sb-uid">721121CS001</div></div>
+      <button class="sb-out" onclick="logout()" title="Logout"><i class="fas fa-sign-out-alt"></i></button>
+    </div>
+  </div>
+  <div class="main">
+    <div class="topbar">
+      <div class="tb-l">
+        <button class="ham" onclick="toggleSidebar('s')"><i class="fas fa-bars"></i></button>
+        <div><div class="tb-title" id="sTitle">Dashboard</div><div class="tb-sub">CSE — Semester V</div></div>
+      </div>
+      <div class="tb-r">
+        <div class="dk-btn" onclick="toggleDark()" title="Dark Mode"><i class="fas fa-moon" id="darkIcon"></i></div>
+        <div class="notif-wrap">
+          <div class="tb-btn" onclick="toggleNotif('s')"><i class="fas fa-bell"></i><span class="nd"></span></div>
+          <div class="notif-dd" id="sNotifDD">
+            <div class="ndd-h"><b>Notifications</b><span class="badge br">3 New</span></div>
+            <div class="ndd-i"><div class="ndi-ic" style="background:#dbeafe;color:#1d4ed8"><i class="fas fa-calendar"></i></div><div><div class="ndi-t">Exam schedule released</div><div class="ndi-s">2 hours ago</div></div></div>
+            <div class="ndd-i"><div class="ndi-ic" style="background:#fef3c7;color:#92400e"><i class="fas fa-exclamation"></i></div><div><div class="ndi-t">Low attendance — OS Concepts</div><div class="ndi-s">Yesterday</div></div></div>
+            <div class="ndd-i"><div class="ndi-ic" style="background:#dcfce7;color:#16a34a"><i class="fas fa-briefcase"></i></div><div><div class="ndi-t">TCS Drive registration open</div><div class="ndi-s">2 days ago</div></div></div>
+          </div>
+        </div>
+        <div class="tb-divider"></div>
+        <div class="tb-user-wrap">
+          <div><div class="tbu-n">Arjun R.</div><div class="tbu-i">721121CS001</div></div>
+          <div class="tb-av">AR</div>
+        </div>
+      </div>
+    </div>
+    <div class="pc">
+
+      <!-- S: DASHBOARD -->
+      <div class="sec active" id="sDash">
+        <div class="stat-row">
+          <div class="sc"><div class="sc-t"><div class="sc-ic" style="background:#dbeafe"><i class="fas fa-clipboard-check" style="color:#1d4ed8"></i></div><span class="trend dn">▼2%</span></div><div class="sc-v">82%</div><div class="sc-l">Overall Attendance</div></div>
+          <div class="sc"><div class="sc-t"><div class="sc-ic" style="background:#dcfce7"><i class="fas fa-star" style="color:#16a34a"></i></div><span class="trend up">▲0.2</span></div><div class="sc-v">8.4</div><div class="sc-l">Current CGPA</div></div>
+          <div class="sc"><div class="sc-t"><div class="sc-ic" style="background:#fef3c7"><i class="fas fa-file-alt" style="color:#d97706"></i></div><span class="trend up">Sem V</span></div><div class="sc-v">5</div><div class="sc-l">Subjects This Sem</div></div>
+          <div class="sc"><div class="sc-t"><div class="sc-ic" style="background:#fee2e2"><i class="fas fa-rupee-sign" style="color:#dc2626"></i></div><span class="trend dn">Due</span></div><div class="sc-v">₹42.5K</div><div class="sc-l">Fee Pending</div></div>
+        </div>
+        <div class="g2">
+          <div class="card">
+            <div class="ch"><div class="ct"><i class="fas fa-clipboard-check"></i> Attendance Summary</div><span class="badge by">Min 75%</span></div>
+            <div class="pr"><div class="pl">Data Structures</div><div class="pp" style="color:#16a34a">88%</div><div class="pb-w"><div class="pb" style="width:88%;background:linear-gradient(90deg,#1a6fc4,#3898ec)"></div></div></div>
+            <div class="pr"><div class="pl">Computer Networks</div><div class="pp" style="color:#d97706">79%</div><div class="pb-w"><div class="pb" style="width:79%;background:linear-gradient(90deg,#d97706,#fbbf24)"></div></div></div>
+            <div class="pr"><div class="pl">OS Concepts</div><div class="pp" style="color:#dc2626">72%</div><div class="pb-w"><div class="pb" style="width:72%;background:linear-gradient(90deg,#dc2626,#f87171)"></div></div></div>
+            <div class="pr"><div class="pl">DBMS</div><div class="pp" style="color:#16a34a">91%</div><div class="pb-w"><div class="pb" style="width:91%;background:linear-gradient(90deg,#16a34a,#4ade80)"></div></div></div>
+            <div class="pr"><div class="pl">Software Engg</div><div class="pp" style="color:#16a34a">85%</div><div class="pb-w"><div class="pb" style="width:85%;background:linear-gradient(90deg,#1a6fc4,#3898ec)"></div></div></div>
+            <div class="alert-box danger">⚠ <b>OS Concepts</b> below 75% — risk of exam debarment!</div>
+          </div>
+          <div class="card">
+            <div class="ch"><div class="ct"><i class="fas fa-bell"></i> Latest Notices</div><span class="badge br">3 New</span></div>
+            <div class="ni-item"><div class="ni-dot" style="background:#dc2626"></div><div><div class="ni-title">Semester Exam Schedule — Nov 2025</div><div class="ni-meta">Controller of Exams · 20 May 2025</div></div></div>
+            <div class="ni-item"><div class="ni-dot" style="background:#1a6fc4"></div><div><div class="ni-title">TCS On-Campus Drive — Register Now</div><div class="ni-meta">Placement Cell · 15 May 2025</div></div></div>
+            <div class="ni-item"><div class="ni-dot" style="background:#f59e0b"></div><div><div class="ni-title">IA Marks Deadline — 25 May 2025</div><div class="ni-meta">Academics · 12 May 2025</div></div></div>
+            <div style="margin-top:16px">
+              <div class="ct" style="margin-bottom:12px"><i class="fas fa-bolt"></i> Quick Actions</div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <button class="btn-o" onclick="showSec('s','sFee',null)"><i class="fas fa-credit-card"></i> Pay Fees</button>
+                <button class="btn-o" onclick="showSec('s','sCGPA',null)"><i class="fas fa-calculator"></i> CGPA Calc</button>
+                <button class="btn-o" onclick="showSec('s','sTT',null)"><i class="fas fa-calendar-week"></i> Timetable</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S: PERSONAL DETAILS -->
+      <div class="sec" id="sProfile">
+        <div class="card">
+          <div class="ct" style="margin-bottom:18px"><i class="fas fa-user-circle"></i> Personal Details</div>
+          <div class="prof-h">
+            <div class="prof-av">AR</div>
+            <div><h3>Arjun Raghunathan</h3><p>B.E. CSE — Semester V · Section A</p><span class="badge bg">Active Student</span></div>
+          </div>
+          <div class="ig">
+            <div class="ic"><div class="il">Roll Number</div><div class="iv">721121CS001</div></div>
+            <div class="ic"><div class="il">Date of Birth</div><div class="iv">14 Aug 2003</div></div>
+            <div class="ic"><div class="il">Gender</div><div class="iv">Male</div></div>
+            <div class="ic"><div class="il">Blood Group</div><div class="iv">O+</div></div>
+            <div class="ic"><div class="il">Email</div><div class="iv">arjun@pdkvcet.ac.in</div></div>
+            <div class="ic"><div class="il">Mobile</div><div class="iv">+91 98765 43210</div></div>
+            <div class="ic"><div class="il">Department</div><div class="iv">CSE</div></div>
+            <div class="ic"><div class="il">Batch</div><div class="iv">2021 – 2025</div></div>
+            <div class="ic"><div class="il">Section</div><div class="iv">Section A</div></div>
+            <div class="ic"><div class="il">Advisor</div><div class="iv">Dr. S. Lakshmi</div></div>
+            <div class="ic"><div class="il">Parent Name</div><div class="iv">M. Raghunathan</div></div>
+            <div class="ic"><div class="il">Parent Mobile</div><div class="iv">+91 87654 32109</div></div>
+            <div class="ic"><div class="il">Address</div><div class="iv">Chennai – 600 100</div></div>
+            <div class="ic"><div class="il">Category</div><div class="iv">OC</div></div>
+            <div class="ic"><div class="il">Admission Type</div><div class="iv">TNEA</div></div>
+            <div class="ic"><div class="il">Aadhar</div><div class="iv">XXXX XXXX 1234</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S: ATTENDANCE -->
+      <div class="sec" id="sAttend">
+        <div class="card">
+          <div class="ct" style="margin-bottom:18px"><i class="fas fa-clipboard-check"></i> Attendance — Semester V (2024–25)</div>
+          <div class="tw">
+            <table>
+              <thead><tr><th>Subject</th><th>Code</th><th>Total</th><th>Present</th><th>Absent</th><th>%</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Data Structures</td><td>CS5301</td><td>50</td><td>44</td><td>6</td><td><b>88%</b></td><td><span class="badge bg">Good</span></td></tr>
+                <tr><td>Computer Networks</td><td>CS5302</td><td>48</td><td>38</td><td>10</td><td><b>79%</b></td><td><span class="badge by">Average</span></td></tr>
+                <tr><td>OS Concepts</td><td>CS5303</td><td>45</td><td>32</td><td>13</td><td style="color:#dc2626"><b>72%</b></td><td><span class="badge br">⚠ Low</span></td></tr>
+                <tr><td>DBMS</td><td>CS5304</td><td>52</td><td>47</td><td>5</td><td><b>91%</b></td><td><span class="badge bg">Excellent</span></td></tr>
+                <tr><td>Software Engineering</td><td>CS5305</td><td>46</td><td>39</td><td>7</td><td><b>85%</b></td><td><span class="badge bg">Good</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="alert-box warn" style="margin-top:14px">ℹ Attend <b>7 more classes</b> in OS Concepts to reach 75% threshold.</div>
+        </div>
+      </div>
+
+      <!-- S: MARKS -->
+      <div class="sec" id="sMarks">
+        <div class="card">
+          <div class="ct" style="margin-bottom:18px"><i class="fas fa-file-alt"></i> Internal Assessment Marks — Semester V</div>
+          <div class="tw">
+            <table>
+              <thead><tr><th>Subject</th><th>IA–1 (25)</th><th>IA–2 (25)</th><th>Assignment (10)</th><th>Practical (15)</th><th>Total (75)</th><th>Grade</th></tr></thead>
+              <tbody>
+                <tr><td>Data Structures</td><td>21</td><td>22</td><td>9</td><td>13</td><td><b>65</b></td><td><span class="badge bg">A+</span></td></tr>
+                <tr><td>Computer Networks</td><td>18</td><td>20</td><td>8</td><td>12</td><td><b>58</b></td><td><span class="badge bb">A</span></td></tr>
+                <tr><td>OS Concepts</td><td>16</td><td>17</td><td>7</td><td>10</td><td><b>50</b></td><td><span class="badge by">B+</span></td></tr>
+                <tr><td>DBMS</td><td>23</td><td>24</td><td>10</td><td>14</td><td><b>71</b></td><td><span class="badge bg">O</span></td></tr>
+                <tr><td>Software Engineering</td><td>20</td><td>19</td><td>9</td><td>13</td><td><b>61</b></td><td><span class="badge bg">A+</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- S: RESULT -->
+      <div class="sec" id="sResult">
+        <div class="card">
+          <div class="ct" style="margin-bottom:18px"><i class="fas fa-graduation-cap"></i> Semester Results</div>
+          <div class="sem-c"><div class="sem-n">I</div><div class="sem-i"><h4>Semester I — 2021–22</h4><p>6 Subjects · All Cleared</p></div><span class="badge bg" style="margin-left:auto;margin-right:12px">Pass</span><div class="sem-g">8.2</div></div>
+          <div class="sem-c"><div class="sem-n">II</div><div class="sem-i"><h4>Semester II — 2021–22</h4><p>6 Subjects · All Cleared</p></div><span class="badge bg" style="margin-left:auto;margin-right:12px">Pass</span><div class="sem-g">8.5</div></div>
+          <div class="sem-c"><div class="sem-n">III</div><div class="sem-i"><h4>Semester III — 2022–23</h4><p>6 Subjects · All Cleared</p></div><span class="badge bg" style="margin-left:auto;margin-right:12px">Pass</span><div class="sem-g">8.3</div></div>
+          <div class="sem-c"><div class="sem-n">IV</div><div class="sem-i"><h4>Semester IV — 2022–23</h4><p>6 Subjects · All Cleared</p></div><span class="badge bg" style="margin-left:auto;margin-right:12px">Pass</span><div class="sem-g">8.6</div></div>
+          <div class="sem-c cur"><div class="sem-n">V</div><div class="sem-i"><h4>Semester V — 2023–24 (Current)</h4><p>5 Subjects · In Progress</p></div><span class="badge bb" style="margin-left:auto;margin-right:12px">Active</span><div class="sem-g" style="color:#f59e0b">—</div></div>
+          <div style="margin-top:16px;padding:16px 20px;background:var(--xlight);border-radius:10px;display:flex;align-items:center;justify-content:space-between">
+            <div><div style="font-size:.75rem;color:var(--sub)">CGPA (Sem I–IV)</div><div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.6rem;color:var(--primary)">8.40</div></div>
+            <button class="btn-p" onclick="toast('Transcript downloaded!','success')"><i class="fas fa-download"></i> Download Transcript</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- S: TIMETABLE -->
+      <div class="sec" id="sTT">
+        <div class="card">
+          <div class="ct" style="margin-bottom:18px"><i class="fas fa-calendar-week"></i> Weekly Timetable — Semester V · Section A</div>
+          <div class="tw">
+            <div class="tt" style="grid-template-columns:90px repeat(7,1fr)">
+              <div class="tt-h">Day</div>
+              <div class="tt-h">9–10 AM</div><div class="tt-h">10–11 AM</div><div class="tt-h">11–12 PM</div>
+              <div class="tt-h">12–1 PM</div><div class="tt-h">1–2 PM</div><div class="tt-h">2–3 PM</div><div class="tt-h">3–4 PM</div>
+
+              <div class="tt-d">MON</div>
+              <div class="tt-c"><div class="tt-s">Data Structures</div><div class="tt-r">CS301·Dr.Lakshmi</div></div>
+              <div class="tt-c"><div class="tt-s">Comp Networks</div><div class="tt-r">CS301·Dr.Lakshmi</div></div>
+              <div class="tt-c"><div class="tt-s">OS Concepts</div><div class="tt-r">CS301·Prof.Kumar</div></div>
+              <div class="tt-c lunch"><div class="tt-s">🍽 Lunch</div></div>
+              <div class="tt-c free"><div class="tt-s">Free</div></div>
+              <div class="tt-c lab"><div class="tt-s">DBMS Lab</div><div class="tt-r">Lab-2·Dr.Lakshmi</div></div>
+              <div class="tt-c lab"><div class="tt-s">DBMS Lab</div><div class="tt-r">Lab-2·Dr.Lakshmi</div></div>
+
+              <div class="tt-d">TUE</div>
+              <div class="tt-c"><div class="tt-s">DBMS</div><div class="tt-r">CS301·Dr.Lakshmi</div></div>
+              <div class="tt-c"><div class="tt-s">Software Engg</div><div class="tt-r">CS301·Prof.Priya</div></div>
+              <div class="tt-c"><div class="tt-s">Data Structures</div><div class="tt-r">CS301·Dr.Lakshmi</div></div>
+              <div class="tt-c lunch"><div class="tt-s">🍽 Lunch</div></div>
+              <div class="tt-c"><div class="tt-s">Comp Networks</div><div class="tt-r">CS301·Dr.Lakshmi</div></div>
+              <div class="tt-c free"><div class="tt-s">Free</div></div>
+              <div class="tt-c"><div class="tt-s">OS Concepts</div><div class="tt-r">CS301·Prof.Kumar</div></div>
+
+              <div class="tt-d">WED</div>
+              <div class="tt-c lab"><div class="tt-s">CN Lab</div><div class="tt-r">Lab-1·Dr.Lakshmi</div></div>
+              <div class="tt-c lab"><div class="tt-s">CN Lab</div><div class="tt-r">Lab-1·Dr.Lakshmi</div></div>
+              <div class="tt-c"><div class="tt-s">DBMS</div><div class="tt-r">CS301·Dr.Lakshmi</div></div>
+              <div class="tt-c lunch"><div class="tt-s">🍽 Lunch</div></div>
+              <div class="tt-c"><div class="tt-s">Software Engg</div><div class="tt-r">CS301·Prof.Priya</div></div>
+              <div class="tt-c"><div class="tt-s">Data Structures</div><div class="tt-r">CS301·Dr.Lakshmi</div></div>
+              <div class="tt-c free"><div class="tt-s">Free</div></div>
+
+              <div class="tt-d">THU</div>
+              <div class="tt-c"><div class="tt-s">OS Concepts</div><div class="tt-r">CS301·Prof.Kumar</div></div>
+              <div class="tt-c"><div class="tt-s">DBMS</div><div class="tt-r">CS301·Dr.Lakshmi</div></div>
+              <div class="tt-c"><div class="tt-s">Software Engg</div><div class="tt-r">CS301·Prof.Priya</div></div>
+              <div class="tt-c lunch"><div class="tt-s">🍽 Lunch</div></div>
+              <div class="tt-c lab"><div class="tt-s">OS Lab</div><div class="tt-r">Lab-3·Prof.Kumar</div></div>
+              <div class="tt-c lab"><div class="tt-s">OS Lab</div><div class="tt-r">Lab-3·Prof.Kumar</div></div>
+              <div class="tt-c free"><div class="tt-s">Free</div></div>
+
+              <div class="tt-d">FRI</div>
+              <div class="tt-c"><div class="tt-s">Comp Networks</div><div class="tt-r">CS301·Dr.Lakshmi</div></div>
+              <div class="tt-c"><div class="tt-s">Data Structures</div><div class="tt-r">CS301·Dr.Lakshmi</div></div>
+              <div class="tt-c"><div class="tt-s">OS Concepts</div><div class="tt-r">CS301·Prof.Kumar</div></div>
+              <div class="tt-c lunch"><div class="tt-s">🍽 Lunch</div></div>
+              <div class="tt-c"><div class="tt-s">Software Engg</div><div class="tt-r">CS301·Prof.Priya</div></div>
+              <div class="tt-c"><div class="tt-s">DBMS</div><div class="tt-r">CS301·Dr.Lakshmi</div></div>
+              <div class="tt-c free"><div class="tt-s">Free</div></div>
+            </div>
+          </div>
+          <div class="tt-legend">
+            <span><span class="leg-dot" style="background:var(--xlight);border:1px solid var(--border)"></span>Theory</span>
+            <span><span class="leg-dot" style="background:#f0fdf4;border:1px solid #bbf7d0"></span>Lab</span>
+            <span><span class="leg-dot" style="background:#fef3c7;border:1px solid #fde68a"></span>Lunch</span>
+            <span><span class="leg-dot" style="background:#f8fafd;border:1px solid var(--border)"></span>Free</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- S: CGPA CALCULATOR -->
+      <div class="sec" id="sCGPA">
+        <div class="g2">
+          <div class="card">
+            <div class="ct" style="margin-bottom:18px"><i class="fas fa-calculator"></i> CGPA Calculator — Semester V</div>
+            <div class="tw">
+              <table>
+                <thead><tr><th>Subject</th><th>Credits</th><th>Grade Point</th></tr></thead>
+                <tbody>
+                  <tr class="cgpa-row"><td>Data Structures</td><td><input class="mi credit-in" type="number" value="4" min="1" max="6" onchange="calcCGPA()"/></td><td><select class="mi grade-sel" onchange="calcCGPA()"><option value="10">O (10)</option><option value="9" selected>A+ (9)</option><option value="8">A (8)</option><option value="7">B+ (7)</option><option value="6">B (6)</option><option value="5">C (5)</option><option value="0">U (0)</option></select></td></tr>
+                  <tr class="cgpa-row"><td>Computer Networks</td><td><input class="mi credit-in" type="number" value="4" min="1" max="6" onchange="calcCGPA()"/></td><td><select class="mi grade-sel" onchange="calcCGPA()"><option value="10">O (10)</option><option value="9">A+ (9)</option><option value="8" selected>A (8)</option><option value="7">B+ (7)</option><option value="6">B (6)</option><option value="5">C (5)</option><option value="0">U (0)</option></select></td></tr>
+                  <tr class="cgpa-row"><td>OS Concepts</td><td><input class="mi credit-in" type="number" value="4" min="1" max="6" onchange="calcCGPA()"/></td><td><select class="mi grade-sel" onchange="calcCGPA()"><option value="10">O (10)</option><option value="9">A+ (9)</option><option value="8">A (8)</option><option value="7" selected>B+ (7)</option><option value="6">B (6)</option><option value="5">C (5)</option><option value="0">U (0)</option></select></td></tr>
+                  <tr class="cgpa-row"><td>DBMS</td><td><input class="mi credit-in" type="number" value="4" min="1" max="6" onchange="calcCGPA()"/></td><td><select class="mi grade-sel" onchange="calcCGPA()"><option value="10" selected>O (10)</option><option value="9">A+ (9)</option><option value="8">A (8)</option><option value="7">B+ (7)</option><option value="6">B (6)</option><option value="5">C (5)</option><option value="0">U (0)</option></select></td></tr>
+                  <tr class="cgpa-row"><td>Software Engg</td><td><input class="mi credit-in" type="number" value="3" min="1" max="6" onchange="calcCGPA()"/></td><td><select class="mi grade-sel" onchange="calcCGPA()"><option value="10">O (10)</option><option value="9" selected>A+ (9)</option><option value="8">A (8)</option><option value="7">B+ (7)</option><option value="6">B (6)</option><option value="5">C (5)</option><option value="0">U (0)</option></select></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div>
+            <div class="cgpa-box">
+              <div style="font-size:.8rem;opacity:.8;margin-bottom:6px">Calculated GPA</div>
+              <div class="cgpa-val" id="cgpaVal">8.74</div>
+              <div style="font-size:.8rem;opacity:.75;margin-top:4px">Grade Point Average</div>
+              <div class="cgpa-grade" id="cgpaGrade">A+ — Excellent</div>
+            </div>
+            <div class="card" style="margin-top:16px">
+              <div class="ct" style="margin-bottom:12px"><i class="fas fa-table"></i> Grade Scale</div>
+              <table style="font-size:.8rem">
+                <thead><tr><th>Grade</th><th>Points</th><th>Marks</th></tr></thead>
+                <tbody>
+                  <tr><td><span class="badge bg">O</span></td><td>10</td><td>≥ 95%</td></tr>
+                  <tr><td><span class="badge bg">A+</span></td><td>9</td><td>85–94%</td></tr>
+                  <tr><td><span class="badge bb">A</span></td><td>8</td><td>75–84%</td></tr>
+                  <tr><td><span class="badge by">B+</span></td><td>7</td><td>65–74%</td></tr>
+                  <tr><td><span class="badge by">B</span></td><td>6</td><td>55–64%</td></tr>
+                  <tr><td><span class="badge bc">C</span></td><td>5</td><td>50–54%</td></tr>
+                  <tr><td><span class="badge br">U</span></td><td>0</td><td>&lt; 50%</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S: FEE PAYMENT -->
+      <div class="sec" id="sFee">
+        <div class="card">
+          <div class="ct" style="margin-bottom:18px"><i class="fas fa-credit-card"></i> Fee Payment — Semester V (2024–25)</div>
+          <div class="fee-banner">
+            <div><h4>Total Amount Due</h4><p>Semester V · Academic Year 2024–25</p></div>
+            <div style="text-align:right"><div class="fee-amt" id="totalDue">₹42,500</div><div style="font-size:.75rem;opacity:.8">Due: 30 Jun 2025</div></div>
+          </div>
+          <div class="fee-row"><div class="fr-n">Tuition Fee</div><div class="fr-a">₹35,000</div><span class="badge br fee-p">Pending</span></div>
+          <div class="fee-row"><div class="fr-n">Lab Fee</div><div class="fr-a">₹5,000</div><span class="badge br fee-p">Pending</span></div>
+          <div class="fee-row"><div class="fr-n">Exam Fee</div><div class="fr-a">₹2,500</div><span class="badge br fee-p">Pending</span></div>
+          <div class="fee-row" style="border-top:2px solid var(--border);padding-top:14px;margin-top:6px"><div class="fr-n" style="font-weight:700">Total</div><div class="fr-a" style="font-size:1.1rem">₹42,500</div></div>
+          <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn-p" onclick="openPayModal()"><i class="fas fa-lock"></i> Pay Now — ₹42,500</button>
+            <button class="btn-o" onclick="toast('Receipt downloaded!','success')"><i class="fas fa-download"></i> Receipt</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ct" style="margin-bottom:16px"><i class="fas fa-history"></i> Payment History</div>
+          <div class="tw">
+            <table>
+              <thead><tr><th>Semester</th><th>Amount</th><th>Date</th><th>Mode</th><th>Receipt</th></tr></thead>
+              <tbody>
+                <tr><td>Semester IV</td><td>₹42,500</td><td>5 Jan 2024</td><td>UPI</td><td><button class="btn-sm-o" onclick="toast('Downloaded!','success')"><i class="fas fa-download"></i></button></td></tr>
+                <tr><td>Semester III</td><td>₹42,500</td><td>3 Jul 2023</td><td>Net Banking</td><td><button class="btn-sm-o" onclick="toast('Downloaded!','success')"><i class="fas fa-download"></i></button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- S: CERTIFICATES -->
+      <div class="sec" id="sCerts">
+        <div class="card">
+          <div class="ct" style="margin-bottom:18px"><i class="fas fa-certificate"></i> Certificates &amp; Documents</div>
+          <div class="cert-grid">
+            <div class="cert-c"><span class="cert-ic">🪪</span><h4>Bonafide Certificate</h4><p>Scholarship / Bank / Visa</p><button class="btn-p cert-btn" onclick="toast('Bonafide Certificate downloaded!','success')"><i class="fas fa-download"></i> Download</button></div>
+            <div class="cert-c"><span class="cert-ic">🎓</span><h4>Course Completion</h4><p>After final semester</p><button class="btn-o cert-btn" onclick="toast('Request submitted! Ready in 2 days.','info')"><i class="fas fa-paper-plane"></i> Request</button></div>
+            <div class="cert-c"><span class="cert-ic">🧾</span><h4>Fee Receipt</h4><p>Payment proof</p><button class="btn-p cert-btn" onclick="toast('Fee receipt downloaded!','success')"><i class="fas fa-download"></i> Download</button></div>
+            <div class="cert-c"><span class="cert-ic">📋</span><h4>Migration Certificate</h4><p>Transfer to another university</p><button class="btn-o cert-btn" onclick="toast('Request submitted!','info')"><i class="fas fa-paper-plane"></i> Request</button></div>
+            <div class="cert-c"><span class="cert-ic">⭐</span><h4>Conduct Certificate</h4><p>Issued by HOD</p><button class="btn-o cert-btn" onclick="toast('Request submitted!','info')"><i class="fas fa-paper-plane"></i> Request</button></div>
+            <div class="cert-c"><span class="cert-ic">🏅</span><h4>Merit Certificate</h4><p>Academic excellence</p><button class="btn-p cert-btn" onclick="toast('Merit Certificate downloaded!','success')"><i class="fas fa-download"></i> Download</button></div>
+            <div class="cert-c"><span class="cert-ic">📄</span><h4>Transcript</h4><p>Official academic record</p><button class="btn-p cert-btn" onclick="toast('Transcript downloaded!','success')"><i class="fas fa-download"></i> Download</button></div>
+            <div class="cert-c"><span class="cert-ic">🆔</span><h4>ID Card Request</h4><p>Lost / Replacement</p><button class="btn-o cert-btn" onclick="toast('ID Card request submitted!','info')"><i class="fas fa-paper-plane"></i> Request</button></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S: GRIEVANCE -->
+      <div class="sec" id="sGriev">
+        <div class="g2">
+          <div class="card">
+            <div class="ct" style="margin-bottom:18px"><i class="fas fa-comments"></i> Submit Grievance</div>
+            <div class="fg2"><label>Category</label><select><option>Academic</option><option>Attendance</option><option>Fee</option><option>Hostel</option><option>Infrastructure</option><option>Other</option></select></div>
+            <div class="fg2" style="margin-top:12px"><label>Subject</label><input id="gTitle" type="text" placeholder="Brief title of your concern"/></div>
+            <div class="fg2" style="margin-top:12px"><label>Description</label><textarea id="gDesc" placeholder="Describe your grievance..." style="min-height:100px;resize:vertical"></textarea></div>
+            <button class="btn-p" style="margin-top:16px" onclick="submitGriev()"><i class="fas fa-paper-plane"></i> Submit Grievance</button>
+          </div>
+          <div class="card">
+            <div class="ct" style="margin-bottom:16px"><i class="fas fa-list-alt"></i> My Grievances</div>
+            <div class="griev-item">
+              <div class="gi-ic" style="background:#fef3c7;color:#d97706"><i class="fas fa-clock"></i></div>
+              <div><div class="gi-t">Attendance Correction — OS Concepts</div><div class="gi-s">Ticket: GR-2025-041 · 14 May 2025</div></div>
+              <span class="badge by" style="margin-left:auto;flex-shrink:0">In Progress</span>
+            </div>
+            <div class="griev-item">
+              <div class="gi-ic" style="background:#dcfce7;color:#16a34a"><i class="fas fa-check"></i></div>
+              <div><div class="gi-t">Lab Fee Discrepancy</div><div class="gi-s">Ticket: GR-2025-029 · 2 Apr 2025</div></div>
+              <span class="badge bg" style="margin-left:auto;flex-shrink:0">Resolved</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S: EVENTS -->
+      <div class="sec" id="sEvents">
+        <div class="card">
+          <div class="ct" style="margin-bottom:18px"><i class="fas fa-calendar-star"></i> Upcoming Events</div>
+          <div class="ev-grid">
+            <div class="ev-c"><div class="ev-top"><div class="ev-cat">Technical</div><h4>Annual Tech Fest 2025</h4><p>Dept of CSE</p></div><div class="ev-bot"><span class="ev-dt"><i class="fas fa-calendar"></i> 15 Jun 2025</span><span class="badge bg">Register</span></div></div>
+            <div class="ev-c"><div class="ev-top"><div class="ev-cat">Placement</div><h4>TCS On-Campus Drive</h4><p>Placement Cell</p></div><div class="ev-bot"><span class="ev-dt"><i class="fas fa-calendar"></i> 20 Jun 2025</span><span class="badge bb">Open</span></div></div>
+            <div class="ev-c"><div class="ev-top"><div class="ev-cat">Sports</div><h4>Annual Sports Day</h4><p>Sports Committee</p></div><div class="ev-bot"><span class="ev-dt"><i class="fas fa-calendar"></i> 5 Jul 2025</span><span class="badge by">Soon</span></div></div>
+            <div class="ev-c"><div class="ev-top"><div class="ev-cat">Workshop</div><h4>IEEE — AI/ML Workshop</h4><p>Technical Club · IEEE</p></div><div class="ev-bot"><span class="ev-dt"><i class="fas fa-calendar"></i> 28 Jun 2025</span><span class="badge bg">Register</span></div></div>
+            <div class="ev-c"><div class="ev-top"><div class="ev-cat">Cultural</div><h4>Freshers' Day 2025</h4><p>Student Council</p></div><div class="ev-bot"><span class="ev-dt"><i class="fas fa-calendar"></i> 10 Aug 2025</span><span class="badge bc">Upcoming</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S: NOTICES -->
+      <div class="sec" id="sNotices">
+        <div class="card">
+          <div class="ct" style="margin-bottom:18px"><i class="fas fa-bell"></i> Notice Board</div>
+          <div class="ni-item"><span class="badge br" style="flex-shrink:0">IMP</span><div><div class="ni-title">Semester Exam Schedule — Nov 2025 Released</div><div class="ni-meta">Controller of Examinations · 20 May 2025</div></div></div>
+          <div class="ni-item"><span class="badge bb" style="flex-shrink:0">NEW</span><div><div class="ni-title">Admissions Open 2026–27 — Limited Seats</div><div class="ni-meta">Admission Cell · 18 May 2025</div></div></div>
+          <div class="ni-item"><span class="badge bg" style="flex-shrink:0">NEW</span><div><div class="ni-title">TCS On-Campus Drive — 2025 Batch Registration</div><div class="ni-meta">Placement Cell · 15 May 2025</div></div></div>
+          <div class="ni-item"><span class="badge br" style="flex-shrink:0">IMP</span><div><div class="ni-title">Internal Assessment Deadline — 25 May 2025</div><div class="ni-meta">Academics · 12 May 2025</div></div></div>
+          <div class="ni-item"><span class="badge by" style="flex-shrink:0">INFO</span><div><div class="ni-title">Holiday List — June 2025</div><div class="ni-meta">Administration · 10 May 2025</div></div></div>
+          <div class="ni-item"><span class="badge bc" style="flex-shrink:0">INFO</span><div><div class="ni-title">Annual Sports Day Registration Open</div><div class="ni-meta">Sports Committee · 8 May 2025</div></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ TEACHER DASHBOARD ═══════════ -->
+<div id="teacherDash" class="screen">
+  <div class="overlay" id="tOverlay" onclick="closeSidebar('t')"></div>
+  <div class="sidebar" id="tSidebar">
+    <div class="sb-logo">
+      <div class="sb-icon">🎓</div>
+      <div class="sb-name">Prince Dr. K. <span>Vasudevan</span><br/>College of Engg</div>
+    </div>
+    <div class="sb-role">Faculty Portal</div>
+    <nav class="sb-nav">
+      <div class="nl">Main</div>
+      <div class="ni active" onclick="showSec('t','tDash',this)"><i class="fas fa-th-large"></i><span>Dashboard</span></div>
+      <div class="nl">Management</div>
+      <div class="ni" onclick="showSec('t','tProfile',this)"><i class="fas fa-user-tie"></i><span>Entry Details</span></div>
+      <div class="ni" onclick="showSec('t','tAttend',this)"><i class="fas fa-clipboard-list"></i><span>Attendance Update</span></div>
+      <div class="ni" onclick="showSec('t','tMarks',this)"><i class="fas fa-pen-alt"></i><span>Marks Entry</span></div>
+      <div class="ni" onclick="showSec('t','tResult',this)"><i class="fas fa-upload"></i><span>Result Upload</span></div>
+      <div class="nl">Campus</div>
+      <div class="ni" onclick="showSec('t','tEvents',this)"><i class="fas fa-calendar-plus"></i><span>Event Upload</span></div>
+      <div class="ni" onclick="showSec('t','tCerts',this)"><i class="fas fa-check-circle"></i><span>Certificate Approval</span><span class="nb">4</span></div>
+      <div class="ni" onclick="showSec('t','tNotice',this)"><i class="fas fa-bullhorn"></i><span>Post Notice</span></div>
+    </nav>
+    <div class="sb-user">
+      <div class="sb-av">SL</div>
+      <div class="sb-ui"><div class="sb-un">Dr. S. Lakshmi</div><div class="sb-uid">FAC-CS-001</div></div>
+      <button class="sb-out" onclick="logout()" title="Logout"><i class="fas fa-sign-out-alt"></i></button>
+    </div>
+  </div>
+  <div class="main">
+    <div class="topbar">
+      <div class="tb-l">
+        <button class="ham" onclick="toggleSidebar('t')"><i class="fas fa-bars"></i></button>
+        <div><div class="tb-title" id="tTitle">Dashboard</div><div class="tb-sub">CSE — Asst. Professor</div></div>
+      </div>
+      <div class="tb-r">
+        <div class="dk-btn" onclick="toggleDark()"><i class="fas fa-moon"></i></div>
+        <div class="notif-wrap">
+          <div class="tb-btn" onclick="toggleNotif('t')"><i class="fas fa-bell"></i><span class="nd"></span></div>
+          <div class="notif-dd" id="tNotifDD">
+            <div class="ndd-h"><b>Notifications</b><span class="badge br">2 New</span></div>
+            <div class="ndd-i"><div class="ndi-ic" style="background:#fef3c7;color:#d97706"><i class="fas fa-certificate"></i></div><div><div class="ndi-t">4 cert approvals pending</div><div class="ndi-s">Today</div></div></div>
+            <div class="ndd-i"><div class="ndi-ic" style="background:#dbeafe;color:#1d4ed8"><i class="fas fa-clipboard"></i></div><div><div class="ndi-t">IA-2 marks deadline tomorrow</div><div class="ndi-s">1 day remaining</div></div></div>
+          </div>
+        </div>
+        <div class="tb-divider"></div>
+        <div class="tb-user-wrap">
+          <div><div class="tbu-n">Dr. S. Lakshmi</div><div class="tbu-i">FAC-CS-001</div></div>
+          <div class="tb-av">SL</div>
+        </div>
+      </div>
+    </div>
+    <div class="pc">
+
+      <!-- T: DASHBOARD -->
+      <div class="sec active" id="tDash">
+        <div class="stat-row">
+          <div class="sc"><div class="sc-t"><div class="sc-ic" style="background:#dbeafe"><i class="fas fa-users" style="color:#1d4ed8"></i></div></div><div class="sc-v">62</div><div class="sc-l">Students — Sec A</div></div>
+          <div class="sc"><div class="sc-t"><div class="sc-ic" style="background:#dcfce7"><i class="fas fa-book" style="color:#16a34a"></i></div></div><div class="sc-v">3</div><div class="sc-l">Subjects Handling</div></div>
+          <div class="sc"><div class="sc-t"><div class="sc-ic" style="background:#fef3c7"><i class="fas fa-check-circle" style="color:#d97706"></i></div></div><div class="sc-v">4</div><div class="sc-l">Pending Approvals</div></div>
+          <div class="sc"><div class="sc-t"><div class="sc-ic" style="background:#fee2e2"><i class="fas fa-exclamation-circle" style="color:#dc2626"></i></div></div><div class="sc-v">5</div><div class="sc-l">Low Attendance Alerts</div></div>
+        </div>
+        <div class="g2">
+          <div class="card">
+            <div class="ct" style="margin-bottom:16px"><i class="fas fa-tasks"></i> Today's Tasks</div>
+            <div class="ni-item"><div class="ni-dot" style="background:#dc2626"></div><div><div class="ni-title">Submit Attendance — CS5301 (9 AM)</div><div class="ni-meta">Pending</div></div></div>
+            <div class="ni-item"><div class="ni-dot" style="background:#f59e0b"></div><div><div class="ni-title">Upload IA-2 Marks — CS5302</div><div class="ni-meta">Due Today</div></div></div>
+            <div class="ni-item"><div class="ni-dot" style="background:#1a6fc4"></div><div><div class="ni-title">Certificate Approval — 4 Requests</div><div class="ni-meta">Review Pending</div></div></div>
+          </div>
+          <div class="card">
+            <div class="ct" style="margin-bottom:16px"><i class="fas fa-chart-bar"></i> Class Attendance Overview</div>
+            <div class="pr"><div class="pl">CS5301 – Data Structures</div><div class="pp" style="color:#16a34a">86%</div><div class="pb-w"><div class="pb" style="width:86%;background:linear-gradient(90deg,#1a6fc4,#3898ec)"></div></div></div>
+            <div class="pr"><div class="pl">CS5302 – Computer Networks</div><div class="pp" style="color:#d97706">74%</div><div class="pb-w"><div class="pb" style="width:74%;background:linear-gradient(90deg,#d97706,#fbbf24)"></div></div></div>
+            <div class="pr"><div class="pl">CS5304L – DBMS Lab</div><div class="pp" style="color:#16a34a">92%</div><div class="pb-w"><div class="pb" style="width:92%;background:linear-gradient(90deg,#16a34a,#4ade80)"></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- T: ENTRY DETAILS -->
+      <div class="sec" id="tProfile">
+        <div class="card">
+          <div class="ct" style="margin-bottom:18px"><i class="fas fa-user-tie"></i> Faculty Entry Details</div>
+          <div class="prof-h">
+            <div class="prof-av">SL</div>
+            <div><h3>Dr. S. Lakshmi</h3><p>Assistant Professor — Dept of CSE</p><span class="badge bg">Active Faculty</span></div>
+          </div>
+          <div class="ig">
+            <div class="ic"><div class="il">Employee ID</div><div class="iv">FAC-CS-001</div></div>
+            <div class="ic"><div class="il">Designation</div><div class="iv">Asst. Professor</div></div>
+            <div class="ic"><div class="il">Department</div><div class="iv">CSE</div></div>
+            <div class="ic"><div class="il">Qualification</div><div class="iv">Ph.D. (CSE)</div></div>
+            <div class="ic"><div class="il">Experience</div><div class="iv">8 Years</div></div>
+            <div class="ic"><div class="il">Email</div><div class="iv">slakshmi@pdkvcet.ac.in</div></div>
+            <div class="ic"><div class="il">Mobile</div><div class="iv">+91 99999 00001</div></div>
+            <div class="ic"><div class="il">Joined</div><div class="iv">01 Jul 2017</div></div>
+          </div>
+          <div style="margin-top:18px">
+            <div class="ct" style="font-size:.9rem;margin-bottom:12px"><i class="fas fa-book"></i> Subjects Assigned</div>
+            <div class="tw"><table><thead><tr><th>Subject</th><th>Code</th><th>Section</th><th>Semester</th><th>Hours/Week</th></tr></thead><tbody>
+              <tr><td>Data Structures</td><td>CS5301</td><td>A</td><td>V</td><td>4</td></tr>
+              <tr><td>Computer Networks</td><td>CS5302</td><td>A</td><td>V</td><td>4</td></tr>
+              <tr><td>DBMS Lab</td><td>CS5304L</td><td>A</td><td>V</td><td>3</td></tr>
+            </tbody></table></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- T: ATTENDANCE UPDATE -->
+      <div class="sec" id="tAttend">
+        <div class="card">
+          <div class="ct" style="margin-bottom:18px"><i class="fas fa-clipboard-list"></i> Attendance Update</div>
+          <div class="fr3">
+            <div class="fg2"><label>Subject</label><select><option>CS5301 – Data Structures</option><option>CS5302 – Computer Networks</option><option>CS5304L – DBMS Lab</option></select></div>
+            <div class="fg2"><label>Date</label><input type="date" value="2025-05-29"/></div>
+            <div class="fg2"><label>Hour</label><select><option>1st Hour (9–10 AM)</option><option>2nd Hour (10–11 AM)</option><option>3rd Hour (11–12 PM)</option><option>4th Hour (2–3 PM)</option></select></div>
+          </div>
+          <div class="tw" style="margin-top:16px">
+            <table>
+              <thead><tr><th>#</th><th>Roll No.</th><th>Name</th><th style="text-align:center">Present</th><th style="text-align:center">Absent</th><th style="text-align:center">OD</th></tr></thead>
+              <tbody id="attTable"></tbody>
+            </table>
+          </div>
+          <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn-p" onclick="saveAtt()"><i class="fas fa-save"></i> Save Attendance</button>
+            <button class="btn-o" onclick="markAllPresent()"><i class="fas fa-check-double"></i> Mark All Present</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- T: MARKS ENTRY -->
+      <div class="sec" id="tMarks">
+        <div class="card">
+          <div class="ct" style="margin-bottom:18px"><i class="fas fa-pen-alt"></i> Marks Entry</div>
+          <div class="fr2">
+            <div class="fg2"><label>Subject</label><select><option>CS5301 – Data Structures</option><option>CS5302 – Computer Networks</option></select></div>
+            <div class="fg2"><label>Assessment Type</label><select><option>Internal Assessment 1 (Max: 25)</option><option>Internal Assessment 2 (Max: 25)</option><option>Assignment (Max: 10)</option><option>Practical (Max: 15)</option></select></div>
+          </div>
+          <div class="tw" style="margin-top:16px">
+            <table>
+              <thead><tr><th>Roll No.</th><th>Name</th><th>Max</th><th>Marks Obtained</th><th>Grade</th></tr></thead>
+              <tbody>
+                <tr><td>721121CS001</td><td>Arjun R.</td><td>25</td><td><input class="mi" type="number" value="21" min="0" max="25" onchange="autoGrade(this,25,this.closest('tr').querySelector('.gc'))"/></td><td class="gc"><span class="badge bg">A+</span></td></tr>
+                <tr><td>721121CS002</td><td>Priya S.</td><td>25</td><td><input class="mi" type="number" value="23" min="0" max="25" onchange="autoGrade(this,25,this.closest('tr').querySelector('.gc'))"/></td><td class="gc"><span class="badge bg">O</span></td></tr>
+                <tr><td>721121CS003</td><td>Karthik M.</td><td>25</td><td><input class="mi" type="number" value="18" min="0" max="25" onchange="autoGrade(this,25,this.closest('tr').querySelector('.gc'))"/></td><td class="gc"><span class="badge bb">A</span></td></tr>
+                <tr><td>721121CS004</td><td>Meera V.</td><td>25</td><td><input class="mi" type="number" value="20" min="0" max="25" onchange="autoGrade(this,25,this.closest('tr').querySelector('.gc'))"/></td><td class="gc"><span class="badge bb">A</span></td></tr>
+                <tr><td>721121CS005</td><td>Rajan P.</td><td>25</td><td><input class="mi" type="number" value="15" min="0" max="25" onchange="autoGrade(this,25,this.closest('tr').querySelector('.gc'))"/></td><td class="gc"><span class="badge by">B+</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top:14px;display:flex;gap:10px">
+            <button class="btn-p" onclick="toast('Marks saved!','success')"><i class="fas fa-save"></i> Save Marks</button>
+            <button class="btn-o" onclick="toast('Marks published to students!','info')"><i class="fas fa-paper-plane"></i> Publish</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- T: RESULT UPLOAD -->
+      <div class="sec" id="tResult">
+        <div class="card">
+          <div class="ct" style="margin-bottom:18px"><i class="fas fa-upload"></i> Result Upload</div>
+          <div class="fr3">
+            <div class="fg2"><label>Semester</label><select><option>Semester V (2024–25)</option><option>Semester IV</option></select></div>
+            <div class="fg2"><label>Subject</label><select><option>CS5301 – Data Structures</option><option>CS5302 – Computer Networks</option></select></div>
+            <div class="fg2"><label>Exam Type</label><select><option>End Semester Exam</option><option>Internal Assessment</option></select></div>
+          </div>
+          <div class="upload-z" style="margin-top:14px" onclick="toast('File browser opened','info')">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <h4>Click to Upload Result Sheet</h4>
+            <p>Supports .xlsx, .csv, .pdf · Max 10MB</p>
+          </div>
+          <div style="margin-top:14px;display:flex;gap:10px">
+            <button class="btn-p" onclick="toast('Results uploaded & published!','success')"><i class="fas fa-upload"></i> Upload Results</button>
+            <button class="btn-o" onclick="toast('Template downloaded!','success')"><i class="fas fa-download"></i> Template</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="ct" style="margin-bottom:14px"><i class="fas fa-history"></i> Upload History</div>
+          <div class="tw"><table><thead><tr><th>Subject</th><th>Semester</th><th>Exam Type</th><th>Uploaded On</th><th>Status</th></tr></thead><tbody>
+            <tr><td>CS5301</td><td>V</td><td>Internal Assessment 1</td><td>10 May 2025</td><td><span class="badge bg">Published</span></td></tr>
+            <tr><td>CS5302</td><td>V</td><td>Internal Assessment 1</td><td>11 May 2025</td><td><span class="badge bg">Published</span></td></tr>
+            <tr><td>CS5301</td><td>V</td><td>Internal Assessment 2</td><td>—</td><td><span class="badge by">Pending</span></td></tr>
+          </tbody></table></div>
+        </div>
+      </div>
+
+      <!-- T: EVENT UPLOAD -->
+      <div class="sec" id="tEvents">
+        <div class="card">
+          <div class="ct" style="margin-bottom:18px"><i class="fas fa-calendar-plus"></i> Post New Event</div>
+          <div class="fr2">
+            <div class="fg2"><label>Event Title</label><input id="evTitle" type="text" placeholder="e.g. Annual Tech Fest 2025"/></div>
+            <div class="fg2"><label>Organized By</label><input type="text" placeholder="Department / Club / Committee"/></div>
+          </div>
+          <div class="fr3" style="margin-top:12px">
+            <div class="fg2"><label>Event Date</label><input type="date"/></div>
+            <div class="fg2"><label>Venue</label><input type="text" placeholder="Seminar Hall, Block A"/></div>
+            <div class="fg2"><label>Category</label><select><option>Technical</option><option>Cultural</option><option>Sports</option><option>Placement</option><option>Workshop</option><option>Other</option></select></div>
+          </div>
+          <div class="fg2" style="margin-top:12px"><label>Description</label><textarea placeholder="Event description, rules, prizes..." style="min-height:90px;resize:vertical"></textarea></div>
+          <div class="upload-z" style="margin-top:14px" onclick="toast('File selected!','info')">
+            <i class="fas fa-image"></i><h4>Upload Event Poster / Banner</h4><p>JPG, PNG · Max 5MB</p>
+          </div>
+          <button class="btn-p" style="margin-top:14px" onclick="postEvent()"><i class="fas fa-paper-plane"></i> Post Event</button>
+        </div>
+      </div>
+
+      <!-- T: CERTIFICATE APPROVAL -->
+      <div class="sec" id="tCerts">
+        <div class="card">
+          <div class="ct" style="margin-bottom:18px"><i class="fas fa-check-circle"></i> Certificate Approval Requests</div>
+          <div class="tw">
+            <table>
+              <thead><tr><th>Roll No.</th><th>Student</th><th>Certificate Type</th><th>Requested On</th><th>Status</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr><td>721121CS001</td><td>Arjun R.</td><td>Bonafide Certificate</td><td>20 May 2025</td><td><span class="badge by">Pending</span></td><td><div style="display:flex;gap:6px"><button class="btn-sm-g" onclick="certAction(this,'approve')"><i class="fas fa-check"></i> Approve</button><button class="btn-sm-r" onclick="certAction(this,'reject')"><i class="fas fa-times"></i> Reject</button></div></td></tr>
+                <tr><td>721121CS003</td><td>Karthik M.</td><td>Conduct Certificate</td><td>19 May 2025</td><td><span class="badge by">Pending</span></td><td><div style="display:flex;gap:6px"><button class="btn-sm-g" onclick="certAction(this,'approve')"><i class="fas fa-check"></i> Approve</button><button class="btn-sm-r" onclick="certAction(this,'reject')"><i class="fas fa-times"></i> Reject</button></div></td></tr>
+                <tr><td>721121CS005</td><td>Rajan P.</td><td>Fee Receipt</td><td>18 May 2025</td><td><span class="badge by">Pending</span></td><td><div style="display:flex;gap:6px"><button class="btn-sm-g" onclick="certAction(this,'approve')"><i class="fas fa-check"></i> Approve</button><button class="btn-sm-r" onclick="certAction(this,'reject')"><i class="fas fa-times"></i> Reject</button></div></td></tr>
+                <tr><td>721121CS002</td><td>Priya S.</td><td>Migration Certificate</td><td>17 May 2025</td><td><span class="badge bg">Approved</span></td><td><button class="btn-sm-o" onclick="toast('Downloaded!','success')"><i class="fas fa-download"></i></button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- T: POST NOTICE -->
+      <div class="sec" id="tNotice">
+        <div class="g2">
+          <div class="card">
+            <div class="ct" style="margin-bottom:18px"><i class="fas fa-bullhorn"></i> Post New Notice</div>
+            <div class="fg2"><label>Notice Title</label><input type="text" placeholder="e.g. Internal Exam Postponed"/></div>
+            <div class="fr2" style="margin-top:12px">
+              <div class="fg2"><label>Category</label><select><option>Academic</option><option>Exam</option><option>Placement</option><option>Event</option><option>Holiday</option><option>General</option></select></div>
+              <div class="fg2"><label>Priority</label><select><option>Important</option><option>Normal</option><option>Info</option></select></div>
+            </div>
+            <div class="fg2" style="margin-top:12px"><label>Content</label><textarea placeholder="Full notice content..." style="min-height:100px;resize:vertical"></textarea></div>
+            <button class="btn-p" style="margin-top:14px" onclick="toast('Notice posted to all students!','success')"><i class="fas fa-bullhorn"></i> Post Notice</button>
+          </div>
+          <div class="card">
+            <div class="ct" style="margin-bottom:16px"><i class="fas fa-list"></i> Recent Notices Posted</div>
+            <div class="ni-item"><span class="badge br" style="flex-shrink:0">IMP</span><div><div class="ni-title">Internal Assessment Deadline</div><div class="ni-meta">12 May 2025</div></div></div>
+            <div class="ni-item"><span class="badge bb" style="flex-shrink:0">INFO</span><div><div class="ni-title">DBMS Lab Schedule Change</div><div class="ni-meta">8 May 2025</div></div></div>
+            <div class="ni-item"><span class="badge by" style="flex-shrink:0">INFO</span><div><div class="ni-title">Extra Class — Saturday 10 AM</div><div class="ni-meta">5 May 2025</div></div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- PAY MODAL -->
+<div id="payModal" class="modal-overlay">
+  <div class="modal-box">
+    <h3><i class="fas fa-lock" style="color:var(--primary)"></i> Secure Payment</h3>
+    <p class="lsub">PDKVCET Fee Portal · SSL Encrypted</p>
+    <div class="fg2" style="margin-top:14px"><label>Card Number</label><input type="text" placeholder="1234 5678 9012 3456" maxlength="19"/></div>
+    <div class="fr2" style="margin-top:12px">
+      <div class="fg2"><label>Expiry</label><input type="text" placeholder="MM/YY"/></div>
+      <div class="fg2"><label>CVV</label><input type="text" placeholder="•••" maxlength="3"/></div>
+    </div>
+    <div class="fg2" style="margin-top:12px"><label>Card Holder Name</label><input type="text" placeholder="As on card"/></div>
+    <div class="pay-total">Total: <b>₹42,500</b> · Semester V Fee</div>
+    <div style="display:flex;gap:10px;margin-top:14px">
+      <button class="btn-p" style="flex:1" onclick="processPayment()"><i class="fas fa-lock"></i> Pay ₹42,500</button>
+      <button class="btn-o" onclick="closePayModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div id="toastBox"></div>
+<script src="login.js"></script>
+</body>
+</html>
